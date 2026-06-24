@@ -13,7 +13,7 @@ Because of the uniqueness of the file, new properties can be generated that the 
 
 ## Advanced Features
 
-Unlike the original New_Properrty.xml file, this version includes the following additional features and patches
+Unlike the original [New_Properrty.xml](https://github.com/NAMTeam/New_Properties.xml) file, this version includes the following additional features and patches
 
 - Public services (education, public safety, healthcare) have been completely overhauled, with a capacity increase four times that of the BSC version and twice that of the Maxis version, since the BSC version has values equal to half those of the Maxis version, forcing the player to build more civic buildings
 - The educational buildings are compatible with the Education Realism Mod (ERM) and specific CAM, and they also add new buildings such as a kindergarten and a modular university.
@@ -27,7 +27,12 @@ Unlike the original New_Properrty.xml file, this version includes the following 
 - Additional buildings and properties from the CAM expansions have been added
 - Ability to generate farms up to Stage 10 (Requires CAM or SPAM for Stages 4 and 5—Requires CAM for Stages 5 through 10)
 
-This version of New_property.xml is the version that always contains the latest changes available compared to the original version, which will have delayed updates.
+This version of New_property.xml is the version that always contains the latest changes available compared to the original version, which will have delayed updates (New Building & Patches).
+
+We strongly recommend choosing the right version for your modding project. As a general rule, 
+
+- New_Property.xml -> Recommended for a vanilla or hybrid vanilla experience
+- New_Properties.xml-patches -> Recommended for a CAM experience (CAM, CAM-SPAM, and CAM-Vanilla) or a hybrid experience
 
 ## Installation
 
