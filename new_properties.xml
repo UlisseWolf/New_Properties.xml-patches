@@ -766,16 +766,6 @@ Id/amount pairs that specify the resources the building consumes from the region
 Id/amount pairs that specify the resources the building adds to the regional supply.
 </HELP>
   </PROPERTY>
-  <PROPERTY Name="Regional Supply Consumed" ID="0x16F4C223" Type="Uint32" ShowAsHex="Y">
-    <HELP>
-Id/amount pairs that specify the resources the building consumes from the regional supply.
-</HELP>
-  </PROPERTY>
-  <PROPERTY Name="Regional Supply Produced" ID="0x16F4C224" Type="Uint32" ShowAsHex="Y">
-    <HELP>
-Id/amount pairs that specify the resources the building adds to the regional supply.
-</HELP>
-  </PROPERTY>
   <PROPERTY Name="Occupant Size" ID="0x27812810" Type="Float32" Count="3" Default="1" ShowAsHex="N">
     <HELP>
 In meters: Width Height Depth
@@ -1701,6 +1691,40 @@ monthly fire probability (in percent 0-100) of random lot fire
     </OPTION>
 	<OPTION Value="0xFC78ADC9" Name="vrtxt Farm Fields - Pasture Field 8">
     </OPTION>
+	<OPTION Value="0x57BC6589" Name="SPAM Farm Fields - Tilled Field">
+    </OPTION>
+	<OPTION Value="0x57BC65D1" Name="SPAM Farm Fields - Pasture">
+    </OPTION>
+	<OPTION Value="0x97BC6611" Name="SPAM Farm Fields - Blue Agave Crop">
+    </OPTION>
+	<OPTION Value="0x37BC6658" Name="SPAM Farm Fields - Tomato Field">
+    </OPTION>
+	<OPTION Value="0x97BC669A" Name="SPAM Farm Fields - Hops Bines">
+    </OPTION>
+	<OPTION Value="0xD7BC6666" Name="SPAM Farm Fields - Vineyard">
+    </OPTION>
+	<OPTION Value="0x37BC6740" Name="SPAM Farm Fields - Maize Field">
+    </OPTION>	
+	<OPTION Value="0x37BC6197" Name="SPAM Farm Fields - Wheat Field">
+    </OPTION>
+	<OPTION Value="0x97BC6197" Name="SPAM Farm Fields - Barley Field">
+    </OPTION>	
+	<OPTION Value="0x17BC62E6" Name="SPAM Farm Fields - Rye Field">
+    </OPTION>	
+	<OPTION Value="0x37BC6286" Name="SPAM Farm Fields - Switch Grass Stand">
+    </OPTION>	
+	<OPTION Value="0x77BC62FB" Name="SPAM Farm Fields - Orange Grove">
+    </OPTION>	
+	<OPTION Value="0x57BC63C9" Name="SPAM Farm Fields - Apple Orchard">
+    </OPTION>	
+	<OPTION Value="0x97BC6356" Name="SPAM Farm Fields - Lemon Grove">
+    </OPTION>
+	<OPTION Value="0x87BC642D" Name="SPAM Farm Fields - Peach Orchard">
+    </OPTION>
+	<OPTION Value="0xB7BC647E" Name="SPAM Farm Fields - Rubbarb Crop">
+    </OPTION>
+	<OPTION Value="0x77BC647E" Name="SPAM Farm Fields - Lettuce Crop">
+    </OPTION>		
     <HELP>
 A list of IDs of 1x1 lots that describe a field tile associated with this building (will choose 1 randomly)
 </HELP>
