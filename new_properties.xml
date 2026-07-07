@@ -766,16 +766,6 @@ Id/amount pairs that specify the resources the building consumes from the region
 Id/amount pairs that specify the resources the building adds to the regional supply.
 </HELP>
   </PROPERTY>
-  <PROPERTY Name="Regional Supply Consumed" ID="0x16F4C223" Type="Uint32" ShowAsHex="Y">
-    <HELP>
-Id/amount pairs that specify the resources the building consumes from the regional supply.
-</HELP>
-  </PROPERTY>
-  <PROPERTY Name="Regional Supply Produced" ID="0x16F4C224" Type="Uint32" ShowAsHex="Y">
-    <HELP>
-Id/amount pairs that specify the resources the building adds to the regional supply.
-</HELP>
-  </PROPERTY>
   <PROPERTY Name="Occupant Size" ID="0x27812810" Type="Float32" Count="3" Default="1" ShowAsHex="N">
     <HELP>
 In meters: Width Height Depth
@@ -1701,6 +1691,134 @@ monthly fire probability (in percent 0-100) of random lot fire
     </OPTION>
 	<OPTION Value="0xFC78ADC9" Name="vrtxt Farm Fields - Pasture Field 8">
     </OPTION>
+	<OPTION Value="0x57BC6589" Name="SPAM Farm Fields - Tilled Field">
+    </OPTION>
+	<OPTION Value="0x57BC65D1" Name="SPAM Farm Fields - Pasture">
+    </OPTION>
+	<OPTION Value="0x97BC6611" Name="SPAM Farm Fields - Blue Agave Crop">
+    </OPTION>
+	<OPTION Value="0x37BC6658" Name="SPAM Farm Fields - Tomato Field">
+    </OPTION>
+	<OPTION Value="0x97BC669A" Name="SPAM Farm Fields - Hops Bines">
+    </OPTION>
+	<OPTION Value="0xD7BC6666" Name="SPAM Farm Fields - Vineyard">
+    </OPTION>
+	<OPTION Value="0x37BC6740" Name="SPAM Farm Fields - Maize Field">
+    </OPTION>	
+	<OPTION Value="0x37BC6197" Name="SPAM Farm Fields - Wheat Field">
+    </OPTION>
+	<OPTION Value="0x97BC6197" Name="SPAM Farm Fields - Barley Field">
+    </OPTION>	
+	<OPTION Value="0x17BC62E6" Name="SPAM Farm Fields - Rye Field">
+    </OPTION>	
+	<OPTION Value="0x37BC6286" Name="SPAM Farm Fields - Switch Grass Stand">
+    </OPTION>	
+	<OPTION Value="0x77BC62FB" Name="SPAM Farm Fields - Orange Grove">
+    </OPTION>	
+	<OPTION Value="0x57BC63C9" Name="SPAM Farm Fields - Apple Orchard">
+    </OPTION>	
+	<OPTION Value="0x97BC6356" Name="SPAM Farm Fields - Lemon Grove">
+    </OPTION>
+	<OPTION Value="0x87BC642D" Name="SPAM Farm Fields - Peach Orchard">
+    </OPTION>
+	<OPTION Value="0xB7BC647E" Name="SPAM Farm Fields - Rubbarb Crop">
+    </OPTION>
+	<OPTION Value="0x77BC647E" Name="SPAM Farm Fields - Lettuce Crop"> 
+    </OPTION>		
+	<OPTION Value="0x85E027AF" Name="Colossus Farm Fields - Almond Trees">
+    </OPTION>
+	<OPTION Value="0x060C8F84" Name="Colossus Farm Fields - Artichokes">
+    </OPTION>
+	<OPTION Value="0xE6E22FF0" Name="Colossus Farm Fields - Sheeps">
+    </OPTION>
+	<OPTION Value="0x45F25930" Name="Colossus Farm Fields - Arugula">
+    </OPTION>
+	<OPTION Value="0xE5D1AFE9" Name="Colossus Farm Fields - Arugula">
+    </OPTION>
+	<OPTION Value="0x25E26F84" Name="Colossus Farm Fields - Bamboo">
+    </OPTION>
+	<OPTION Value="0x85DBD0D5" Name="Colossus Farm Fields - Big Flock of Cows">
+    </OPTION>
+	<OPTION Value="0x25DE9C5B" Name="Colossus Farm Fields - Butter Lettuce">
+    </OPTION>
+	<OPTION Value="0x86E0D5F9" Name="Colossus Farm Fields - Carrots">
+    </OPTION>
+	<OPTION Value="0xE5E17AFF" Name="Colossus Farm Fields - Chicken House">
+    </OPTION>
+	<OPTION Value="0x25E02A12" Name="Colossus Farm Fields - Chickens">
+    </OPTION>
+	<OPTION Value="0x05D210CB" Name="Colossus Farm Fields - Cypress Grove">
+    </OPTION>
+	<OPTION Value="0xA6E55A1E" Name="Colossus Farm Fields - Dark Woods">
+    </OPTION>
+	<OPTION Value="0xE5F521A7" Name="Colossus Farm Fields - Flax">
+    </OPTION>	
+	<OPTION Value="0x46C49032" Name="Colossus Farm Fields - Algae">
+    </OPTION>	
+	<OPTION Value="0x87134F37" Name="Colossus Farm Fields - CowsE">
+    </OPTION>	
+	<OPTION Value="0xA5DC6E24" Name="Colossus Farm Fields - Gooseberries">
+    </OPTION>	
+	<OPTION Value="0x85DC29DF" Name="Colossus Farm Fields - Greenhou">
+    </OPTION>	
+	<OPTION Value="0xA5DC8DE2" Name="Colossus Farm Fields - Growtunnels">
+    </OPTION>	
+	<OPTION Value="0x060C9130" Name="Colossus Farm Fields - Holstein Cows">
+    </OPTION>	
+	<OPTION Value="0x660C9103" Name="Colossus Farm Fields - Jersey Cattles">
+    </OPTION>	
+	<OPTION Value="0xE5D20759" Name="Colossus Farm Fields - Leek">
+    </OPTION>	
+	<OPTION Value="0xA5FB7983" Name="Colossus Farm Fields - Molecular Farming">
+    </OPTION>	
+	<OPTION Value="0x25D307F9" Name="Colossus Farm Fields - Olive Groove">
+    </OPTION>	
+	<OPTION Value="0x85DC897A" Name="Colossus Farm Fields - Parsley">
+    </OPTION>	
+	<OPTION Value="0x66E411FE" Name="Colossus Farm Fields - Pasture">
+    </OPTION>	
+	<OPTION Value="0x66E415DA" Name="Colossus Farm Fields - Pasture">
+    </OPTION>		
+	<OPTION Value="0x85D804F4" Name="Colossus Farm Fields - Pegasus Greenhouse">
+    </OPTION>
+	<OPTION Value="0x85DFD6A9" Name="Colossus Farm Fields - Peppermint Breeding">
+    </OPTION>
+	<OPTION Value="0xC5DD1D18" Name="Colossus Farm Fields - Pinewoods">
+    </OPTION>
+	<OPTION Value="0x85E02556" Name="Colossus Farm Fields - Potatoes">
+    </OPTION>
+	<OPTION Value="0x85D830F9" Name="Colossus Farm Fields - Rapessed">
+    </OPTION>
+	<OPTION Value="0x46E3D56C" Name="Colossus Farm Fields - Red Cabbage">
+    </OPTION>
+	<OPTION Value="0x45D32B1C" Name="Colossus Farm Fields - Red Delicious">
+    </OPTION>
+	<OPTION Value="0x060C8FB4" Name="Colossus Farm Fields - Sheeps">
+    </OPTION>
+	<OPTION Value="0x85D84350" Name="Colossus Farm Fields - Some Cows">
+    </OPTION>
+	<OPTION Value="0xE5E51EC3" Name="Colossus Farm Fields - Spelt">
+    </OPTION>
+	<OPTION Value="0xC5E51F6D" Name="Colossus Farm Fields - Strawberries">
+    </OPTION>
+	<OPTION Value="0xA5F3E522" Name="Colossus Farm Fields - Sunflowers">
+    </OPTION>
+	<OPTION Value="0x25D69DE8" Name="Colossus Farm Fields - Tobacco">
+    </OPTION>
+	<OPTION Value="0xE5DD40B8" Name="Colossus Farm Fields - Tomatoes">
+    </OPTION>
+	<OPTION Value="0x65D3EF9B" Name="Colossus Farm Fields - Tomatoes">
+    </OPTION>
+	<OPTION Value="0x45FA220A" Name="Colossus Farm Fields - Trouts">
+    </OPTION>
+	<OPTION Value="0x85D05878" Name="Colossus Farm Fields - Vineya">
+    </OPTION>
+	<OPTION Value="0x85D02738" Name="Colossus Farm Fields - Vineya">
+    </OPTION>
+	<OPTION Value="0x45D71139" Name="Colossus Farm Fields - Wheat">
+    </OPTION>
+	<OPTION Value="0x46E3DD3F" Name="Colossus Farm Fields - White Cabbage">
+    </OPTION>	
     <HELP>
 A list of IDs of 1x1 lots that describe a field tile associated with this building (will choose 1 randomly)
 </HELP>

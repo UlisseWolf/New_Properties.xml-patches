@@ -13,7 +13,14 @@ Because of the uniqueness of the file, new properties can be generated that the 
 
 ## Advanced Features
 
-Unlike the original [New_Properrty.xml](https://github.com/NAMTeam/New_Properties.xml) file, this version includes the following additional features and patches
+Unlike the original [New_Properrty.xml](https://github.com/NAMTeam/New_Properties.xml) file, this version contains the following differences
+
+- Public services (education, public safety, healthcare) have been completely overhauled, with a capacity increase four times that of the BSC version and twice that of the Maxis version, since the BSC version has values equal to half those of the Maxis version, forcing the player to build more civic buildings.
+- No delays in the release of patches and new buildings compared to the original New_Property.xml
+
+Except for these two differences, the two versions have the same patches, additional buildings, and additional properties created by the DLL Mods
+
+Below are all the changes included in this version
 
 - Public services (education, public safety, healthcare) have been completely overhauled, with a capacity increase four times that of the BSC version and twice that of the Maxis version, since the BSC version has values equal to half those of the Maxis version, forcing the player to build more civic buildings
 - The educational buildings are compatible with the Education Realism Mod (ERM) and specific CAM, and they also add new buildings such as a kindergarten and a modular university.
