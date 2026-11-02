@@ -11454,7 +11454,7 @@ This selection will filter the display to only show High-Tech Industry W2W plug-
 
 <CATEGORY Name="Mixed-Use (R-C-I)" ID="0x5C4DE100" ParentID="0xac8fbb73" img="img_rci.gif">
 <HELP>
-This selection will filter the display to only show mixed-use growables: buildings that house residents and give jobs at the same time (Capacity Satisfied with more than one demand). They are grouped like the R-C-I growables by the use that leads: the Purpose and the first demand of Capacity Satisfied decide in which zone the building grows, and the lot's zone types must match it. They need SC4SIM.dll (MixedOccupancy, 1.7.1 or later): Allow Joint Occupancy is true, and the secondary uses have the building's own wealth (I-A $, I-M $$, I-HT $$$), the only wealth the game fills. The query shows the leading use only.
+This selection will filter the display to only show mixed-use growables: buildings that house residents and give jobs at the same time (Capacity Satisfied with more than one demand). They are grouped like the R-C-I growables by the use that leads: the Purpose and the first demand of Capacity Satisfied decide in which zone the building grows, and the lot's zone types must match it. They need SC4SIM.dll (MixedOccupancy, 1.7.1 or later): Allow Joint Occupancy is true, and the secondary uses have the building's own wealth (I-A $, I-M $$, I-HT $$$), the only wealth the game fills. The query (CAM_UI.dat, 0x5C4DE200-0x5C4DE20B, with SC4QueryUIHooks.dll) shows the leading use and adds one row per secondary use.
 </HELP>
 <FILTERS>
  <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
@@ -11494,7 +11494,7 @@ Mixed-use low wealth: homes above shops. 75% of the floor space is homes (R $), 
  <eval name="PowerConsumedFactor" value="0.0041999"/>
  <eval name="WaterConsumedFactor" value="0.01"/>
  <eval name="WaterConsumedConstant" value="1.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForResidential"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE200"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0x6a63bba2"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0xaa905ab9" Set="0x0a8916c8"/> <!--SFx:Query Sound decayed-->
  <PROPERTY ID="0x0a902434" Set="0x4a890f5b"/> <!--SFx:Query Sound abandoned-->
@@ -11532,7 +11532,7 @@ Mixed-use medium wealth: homes above shops. 75% of the floor space is homes (R $
  <eval name="PowerConsumedFactor" value="0.0074999"/>
  <eval name="WaterConsumedFactor" value="0.02"/>
  <eval name="WaterConsumedConstant" value="2.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForResidential"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE201"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0x6a63bba2"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0xaa905ab9" Set="0x0a8916c8"/> <!--SFx:Query Sound decayed-->
  <PROPERTY ID="0x0a902434" Set="0x4a890f5b"/> <!--SFx:Query Sound abandoned-->
@@ -11571,7 +11571,7 @@ Mixed-use high wealth: homes above shops. 75% of the floor space is homes (R $$$
  <eval name="PowerConsumedFactor" value="0.0304000"/>
  <eval name="WaterConsumedFactor" value="0.04"/>
  <eval name="WaterConsumedConstant" value="4.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForResidential"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE202"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0x6a63bba2"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0xaa905ab9" Set="0x0a8916c8"/> <!--SFx:Query Sound decayed-->
  <PROPERTY ID="0x0a902434" Set="0x4a890f5b"/> <!--SFx:Query Sound abandoned-->
@@ -11609,7 +11609,7 @@ Mixed-use medium wealth: homes with workshops. 75% of the floor space is homes (
  <eval name="PowerConsumedFactor" value="0.0074999"/>
  <eval name="WaterConsumedFactor" value="0.02"/>
  <eval name="WaterConsumedConstant" value="2.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForResidential"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE203"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0x6a63bba2"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0xaa905ab9" Set="0x0a8916c8"/> <!--SFx:Query Sound decayed-->
  <PROPERTY ID="0x0a902434" Set="0x4a890f5b"/> <!--SFx:Query Sound abandoned-->
@@ -11646,7 +11646,7 @@ Mixed-use low wealth: a farmhouse with a small farm. 75% of the floor space is h
  <eval name="PowerConsumedFactor" value="0.0041999"/>
  <eval name="WaterConsumedFactor" value="0.01"/>
  <eval name="WaterConsumedConstant" value="1.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForResidential"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE204"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0x6a63bba2"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0xaa905ab9" Set="0x0a8916c8"/> <!--SFx:Query Sound decayed-->
  <PROPERTY ID="0x0a902434" Set="0x4a890f5b"/> <!--SFx:Query Sound abandoned-->
@@ -11685,7 +11685,7 @@ Mixed-use low wealth wall-to-wall: homes above shops. 75% of the floor space is 
  <eval name="PowerConsumedFactor" value="0.0041999"/>
  <eval name="WaterConsumedFactor" value="0.01"/>
  <eval name="WaterConsumedConstant" value="1.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForResidential"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE200"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0x6a63bba2"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0xaa905ab9" Set="0x0a8916c8"/> <!--SFx:Query Sound decayed-->
  <PROPERTY ID="0x0a902434" Set="0x4a890f5b"/> <!--SFx:Query Sound abandoned-->
@@ -11725,7 +11725,7 @@ Mixed-use medium wealth wall-to-wall: homes above shops. 75% of the floor space 
  <eval name="PowerConsumedFactor" value="0.0074999"/>
  <eval name="WaterConsumedFactor" value="0.02"/>
  <eval name="WaterConsumedConstant" value="2.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForResidential"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE201"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0x6a63bba2"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0xaa905ab9" Set="0x0a8916c8"/> <!--SFx:Query Sound decayed-->
  <PROPERTY ID="0x0a902434" Set="0x4a890f5b"/> <!--SFx:Query Sound abandoned-->
@@ -11766,7 +11766,7 @@ Mixed-use high wealth wall-to-wall: homes above shops. 75% of the floor space is
  <eval name="PowerConsumedFactor" value="0.0304000"/>
  <eval name="WaterConsumedFactor" value="0.04"/>
  <eval name="WaterConsumedConstant" value="4.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForResidential"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE202"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0x6a63bba2"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0xaa905ab9" Set="0x0a8916c8"/> <!--SFx:Query Sound decayed-->
  <PROPERTY ID="0x0a902434" Set="0x4a890f5b"/> <!--SFx:Query Sound abandoned-->
@@ -11806,7 +11806,7 @@ Mixed-use medium wealth wall-to-wall: homes with workshops. 75% of the floor spa
  <eval name="PowerConsumedFactor" value="0.0074999"/>
  <eval name="WaterConsumedFactor" value="0.02"/>
  <eval name="WaterConsumedConstant" value="2.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForResidential"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE203"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0x6a63bba2"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0xaa905ab9" Set="0x0a8916c8"/> <!--SFx:Query Sound decayed-->
  <PROPERTY ID="0x0a902434" Set="0x4a890f5b"/> <!--SFx:Query Sound abandoned-->
@@ -11845,7 +11845,7 @@ Mixed-use low wealth wall-to-wall: a farmhouse with a small farm. 75% of the flo
  <eval name="PowerConsumedFactor" value="0.0041999"/>
  <eval name="WaterConsumedFactor" value="0.01"/>
  <eval name="WaterConsumedConstant" value="1.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForResidential"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE204"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0x6a63bba2"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0xaa905ab9" Set="0x0a8916c8"/> <!--SFx:Query Sound decayed-->
  <PROPERTY ID="0x0a902434" Set="0x4a890f5b"/> <!--SFx:Query Sound abandoned-->
@@ -11893,7 +11893,7 @@ Mixed-use low wealth: shops with apartments. 60% of the floor space is shops (CS
  <eval name="PowerConsumedFactor" value="0.019999"/>
  <eval name="WaterConsumedFactor" value="0.20"/>
  <eval name="WaterConsumedConstant" value="2.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForCommercial"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE205"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0x2A8916AB"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0x27812833" Value="0x02"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x01"/>  <!--Wealth-->
@@ -11929,7 +11929,7 @@ Mixed-use medium wealth: shops with apartments. 60% of the floor space is shops 
  <eval name="PowerConsumedFactor" value="0.019999"/>
  <eval name="WaterConsumedFactor" value="0.24"/>
  <eval name="WaterConsumedConstant" value="4.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForCommercial"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE206"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0x2A8916AB"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0x27812833" Value="0x02"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x02"/>  <!--Wealth-->
@@ -11966,7 +11966,7 @@ Mixed-use high wealth: shops with apartments. 60% of the floor space is shops (C
  <eval name="PowerConsumedFactor" value="0.028000"/>
  <eval name="WaterConsumedFactor" value="0.25"/>
  <eval name="WaterConsumedConstant" value="6.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForCommercial"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE207"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0x2A8916AB"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0x27812833" Value="0x02"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x03"/>  <!--Wealth-->
@@ -12001,7 +12001,7 @@ Mixed-use medium wealth: offices with apartments. 60% of the floor space is offi
  <eval name="PowerConsumedFactor" value="0.019999"/>
  <eval name="WaterConsumedFactor" value="0.20"/>
  <eval name="WaterConsumedConstant" value="10.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForCommercial"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE206"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0xEA55BDEB"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0x27812833" Value="0x03"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x02"/>  <!--Wealth-->
@@ -12037,7 +12037,7 @@ Mixed-use high wealth: offices with apartments. 60% of the floor space is office
  <eval name="PowerConsumedFactor" value="0.028000"/>
  <eval name="WaterConsumedFactor" value="0.30"/>
  <eval name="WaterConsumedConstant" value="15.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForCommercial"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE207"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0xEA55BDEB"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0x27812833" Value="0x03"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x03"/>  <!--Wealth-->
@@ -12074,7 +12074,7 @@ Mixed-use low wealth wall-to-wall: shops with apartments. 60% of the floor space
  <eval name="PowerConsumedFactor" value="0.019999"/>
  <eval name="WaterConsumedFactor" value="0.20"/>
  <eval name="WaterConsumedConstant" value="2.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForCommercial"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE205"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0x2A8916AB"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0x27812833" Value="0x02"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x01"/>  <!--Wealth-->
@@ -12112,7 +12112,7 @@ Mixed-use medium wealth wall-to-wall: shops with apartments. 60% of the floor sp
  <eval name="PowerConsumedFactor" value="0.019999"/>
  <eval name="WaterConsumedFactor" value="0.24"/>
  <eval name="WaterConsumedConstant" value="4.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForCommercial"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE206"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0x2A8916AB"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0x27812833" Value="0x02"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x02"/>  <!--Wealth-->
@@ -12151,7 +12151,7 @@ Mixed-use high wealth wall-to-wall: shops with apartments. 60% of the floor spac
  <eval name="PowerConsumedFactor" value="0.028000"/>
  <eval name="WaterConsumedFactor" value="0.25"/>
  <eval name="WaterConsumedConstant" value="6.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForCommercial"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE207"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0x2A8916AB"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0x27812833" Value="0x02"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x03"/>  <!--Wealth-->
@@ -12188,7 +12188,7 @@ Mixed-use medium wealth wall-to-wall: offices with apartments. 60% of the floor 
  <eval name="PowerConsumedFactor" value="0.019999"/>
  <eval name="WaterConsumedFactor" value="0.20"/>
  <eval name="WaterConsumedConstant" value="10.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForCommercial"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE206"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0xEA55BDEB"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0x27812833" Value="0x03"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x02"/>  <!--Wealth-->
@@ -12226,7 +12226,7 @@ Mixed-use high wealth wall-to-wall: offices with apartments. 60% of the floor sp
  <eval name="PowerConsumedFactor" value="0.028000"/>
  <eval name="WaterConsumedFactor" value="0.30"/>
  <eval name="WaterConsumedConstant" value="15.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForCommercial"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE207"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0xEA55BDEB"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0x27812833" Value="0x03"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x03"/>  <!--Wealth-->
@@ -12272,7 +12272,7 @@ Mixed-use agriculture: a farm with the farmer's home. 85% of the floor space is 
  <eval name="PowerConsumedFactor" value="0.400000"/>
  <eval name="WaterConsumedFactor" value="5.000000"/>
  <eval name="WaterConsumedConstant" value="0.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForIndustrial"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE208"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0xAA8A4B05"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0x29B55F73" Value="0x00024100,0x2A6E4309,0x2A6E431D,0xAA6E4328,0x6A6E4332,0xEA6E4721,0xEA6E4722"/> <!--Field lots-->
  <PROPERTY ID="0x27812833" Value="0x05"/>       <!--Purpose-->
@@ -12308,7 +12308,7 @@ Mixed-use manufacturing: workshops with flats. 70% of the floor space is manufac
  <eval name="PowerConsumedFactor" value="0.06"/>
  <eval name="WaterConsumedFactor" value=".9"/>
  <eval name="WaterConsumedConstant" value="0.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForIndustrial"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE209"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0xEA55BAAB"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0x27812833" Value="0x07"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x02"/>  <!--Wealth-->
@@ -12343,7 +12343,7 @@ Mixed-use high tech: a research campus with residences. 70% of the floor space i
  <eval name="PowerConsumedFactor" value="0.18"/>
  <eval name="WaterConsumedFactor" value="0.17"/>
  <eval name="WaterConsumedConstant" value="0.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForIndustrial"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE20A"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0xEA55BAAB"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0x27812833" Value="0x08"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x03"/>  <!--Wealth-->
@@ -12379,7 +12379,7 @@ Mixed-use agriculture wall-to-wall: a farm with the farmer's home. 85% of the fl
  <eval name="PowerConsumedFactor" value="0.400000"/>
  <eval name="WaterConsumedFactor" value="5.000000"/>
  <eval name="WaterConsumedConstant" value="0.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForIndustrial"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE208"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0xAA8A4B05"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0x29B55F73" Value="0x00024100,0x2A6E4309,0x2A6E431D,0xAA6E4328,0x6A6E4332,0xEA6E4721,0xEA6E4722"/> <!--Field lots-->
  <PROPERTY ID="0x27812833" Value="0x05"/>       <!--Purpose-->
@@ -12416,7 +12416,7 @@ Mixed-use manufacturing wall-to-wall: workshops with flats. 70% of the floor spa
  <eval name="PowerConsumedFactor" value="0.06"/>
  <eval name="WaterConsumedFactor" value=".9"/>
  <eval name="WaterConsumedConstant" value="0.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForIndustrial"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE209"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0xEA55BAAB"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0x27812833" Value="0x07"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x02"/>  <!--Wealth-->
@@ -12452,7 +12452,7 @@ Mixed-use high tech wall-to-wall: a research campus with residences. 70% of the 
  <eval name="PowerConsumedFactor" value="0.18"/>
  <eval name="WaterConsumedFactor" value="0.17"/>
  <eval name="WaterConsumedConstant" value="0.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForIndustrial"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE20A"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0xEA55BAAB"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0x27812833" Value="0x08"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x03"/>  <!--Wealth-->
@@ -12488,7 +12488,7 @@ Mixed-use agriculture: a farm with the farmer's home and a farm shop. 80% of the
  <eval name="PowerConsumedFactor" value="0.400000"/>
  <eval name="WaterConsumedFactor" value="5.000000"/>
  <eval name="WaterConsumedConstant" value="0.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForIndustrial"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE20B"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0xAA8A4B05"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0x29B55F73" Value="0x00024100,0x2A6E4309,0x2A6E431D,0xAA6E4328,0x6A6E4332,0xEA6E4721,0xEA6E4722"/> <!--Field lots-->
  <PROPERTY ID="0x27812833" Value="0x05"/>       <!--Purpose-->
@@ -12526,7 +12526,7 @@ Mixed-use agriculture wall-to-wall: a farm with the farmer's home and a farm sho
  <eval name="PowerConsumedFactor" value="0.400000"/>
  <eval name="WaterConsumedFactor" value="5.000000"/>
  <eval name="WaterConsumedConstant" value="0.0"/>
- <PROPERTY ID="0x2a499f85" Eval="QueryForIndustrial"/> <!--Query Examplar -->
+ <PROPERTY ID="0x2a499f85" Eval="0x5C4DE20B"/> <!--Query Exemplar: mixed-use query in CAM_UI.dat (secondary use through SC4QueryUIHooks)-->
  <PROPERTY ID="0xaa1dd397" Set="0xAA8A4B05"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0x29B55F73" Value="0x00024100,0x2A6E4309,0x2A6E431D,0xAA6E4328,0x6A6E4332,0xEA6E4721,0xEA6E4722"/> <!--Field lots-->
  <PROPERTY ID="0x27812833" Value="0x05"/>       <!--Purpose-->
