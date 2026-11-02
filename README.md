@@ -35,6 +35,7 @@ Below are all the changes included in this version
 - Ability to generate farms up to Stage 10 (Requires CAM or SPAM for Stages 4 and 5—Requires CAM for Stages 5 through 10)
 - SC4SIM deathcare (SC4SIM.dll 1.9.4 or later): the properties SC4SIM Deathcare Type, Capacity and Radius (0x5C4DD001-0x5C4DD003), the occupant groups Crematorium (0x5C4DD100) and Cemetery (SC4SIM Deathcare, 0x5C4DD101), the Cemeteries (0x5C4DD200) and Crematoria (0x5C4DD201) submenus under Health and two generators under Hospital: Cemetery (SC4SIM Deathcare) and Crematorium (SC4SIM Deathcare). The Reward Cemetery generator is unchanged
 - LotConfigPropertyZoneTypes: zone 0x0D is shown as I - Manufacturing (SC4SIM ManufacturingZone) instead of Spaceport
+- Mixed-Use (R-C-I) growables: a new category under R-C-I with generators for homes above shops (R/CS $, $$, $$$), offices with apartments (CO/R $$, $$$) and live-work homes with workshops (R/I-m $), each also W2W, and the occupant group Building: Mixed-Use (R-C-I) (0x5C4DE000)
 
 This version of New_property.xml is the version that always contains the latest changes available compared to the original version, which will have delayed updates (New Building & Patches).
 
