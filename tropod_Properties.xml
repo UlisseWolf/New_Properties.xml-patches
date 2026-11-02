@@ -1051,6 +1051,9 @@
 			<property num="0xa7607d88" type="Float32" name="YearlyAmbientWindDirection[1]" desc="YearlyAmbientWindDirection[1]"></property>
 			<property num="0xa7607d89" type="Float32" name="WindPerturbationRange" desc="Angular window for periodic variation of ambient wind direction (0-90 degrees)"></property>
 			<property num="0xa8ebcf0c" type="Uint32" name="Incinerator monthly capacity" desc="Amount of trash burned per month"></property>
+			<property num="0x5c4dd001" type="Uint32" name="SC4SIM Deathcare Type" desc="SC4SIM.dll 1.9.4+: 1 = cemetery (fills one grave per burial), 2 = crematorium (takes up to its capacity every month)"></property>
+			<property num="0x5c4dd002" type="Uint32" name="SC4SIM Deathcare Capacity" desc="SC4SIM.dll 1.9.4+: graves of a cemetery, or bodies a crematorium takes per month"></property>
+			<property num="0x5c4dd003" type="Float32" name="SC4SIM Deathcare Radius" desc="SC4SIM.dll 1.9.4+: radius in meters of the neighborhoods whose dead this building collects"></property>
 			<property num="0xa8f149c5" type="Uint32" name="FloraFamily" desc="FloraFamilyProperty"></property>
 			<property num="0xa8f4eb0c" type="Float32" name="Water Use Reduction" desc="Effect (multiplier) this ordinance has on water use"></property>
 			<property num="0xa90f5dec" type="Uint32" name="IntelliScrollOuterRadiusPixels" desc="When right-click scrolling, this is the number of pixels away from the anchor at which the scrolling speed maxes out."></property>
