@@ -6984,6 +6984,8 @@ List of groups this occupant belongs to.
     </OPTION>
     <OPTION Value="0x5C4DE033" Name="Building: Mixed-Use (I-ht/R $$$) Tech Campus">
     </OPTION>
+    <OPTION Value="0x5C4DE034" Name="Building: Mixed-Use (I-a/R/CS $) Farm with Farmhouse and Farm Shop">
+    </OPTION>
     <OPTION Value="0x1900" Name="Building: VIP">
     </OPTION>
     <OPTION Value="0x1901" Name="Building: Tourist">
@@ -12457,6 +12459,79 @@ Mixed-use high tech wall-to-wall: a research campus with residences. 70% of the 
  <PROPERTY ID="0x29244db5" Value="45"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="6,7,0,0"/> <!--Pollution radii-->
  <PROPERTY ID="0x27812834" Eval="0x00004400,Cap1,0x00001010,Cap2,0x00001020,Cap3,0x00001030,Cap4"/> <!--Capacity Satisfied-->
+ <PROPERTY ID="0xaa1dd401" Eval="True"/> <!--Building Is Wall-to-Wall-->
+ <PROPERTY ID="0xaa1dd402" Eval="False"/> <!--Building Styles PIMX Template Marker-->
+</PROPERTIES>
+</CATEGORY>
+<CATEGORY Name="(I-a/R/CS $) Farm with Farmhouse and Farm Shop" ID="0x5C4DE137" ParentID="0x5C4DE130">
+<HELP>
+Mixed-use agriculture: a farm with the farmer's home and a farm shop. 80% of the floor space is agriculture (I-a jobs), 10% homes (R $), 10% shop (CS $ jobs). Uses the I-a field lots.  To create this mixed-use plug-in drag a model to this category.
+</HELP>
+<FILTERS>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE034"/>
+</FILTERS>
+<PROPERTIES>
+ <eval name="BaseCapacity" value="2+int(BiasedVol/(3*250))"/>
+ <eval name="BiasedBC" value ="int( round( min( 50., BaseCapacity ) * max( 1., sqrt( BaseCapacity/50. ) ) ) )"/>
+ <eval name="Cap1" value="max(1,2+int( BiasedVol*0.8/(3*250) ))"/>
+ <eval name="Cap2" value="max(1,round( 3*0.1 + BiasedVol*0.1/(3*12.42) ))"/>
+ <eval name="Cap3" value="max(1,round( 3*0.1 + BiasedVol*0.1/(3*10.0) ))"/>
+ <eval name="Worth" value="int( 30. +10./3.*Height*3.0)"/>
+ <eval name="BuildingValueFactor" value="154.830001"/>
+ <eval name="AirPollutionFactor" value="0.125"/>
+ <eval name="WaterPollutionFactor" value="0.25"/>
+ <eval name="GarbagePollutionFactor" value="0.2"/>
+ <eval name="PowerConsumedFactor" value="0.400000"/>
+ <eval name="WaterConsumedFactor" value="5.000000"/>
+ <eval name="WaterConsumedConstant" value="0.0"/>
+ <PROPERTY ID="0x2a499f85" Eval="QueryForIndustrial"/> <!--Query Examplar -->
+ <PROPERTY ID="0xaa1dd397" Set="0xAA8A4B05"/> <!--SFX:Query Sound-->
+ <PROPERTY ID="0x29B55F73" Value="0x00024100,0x2A6E4309,0x2A6E431D,0xAA6E4328,0x6A6E4332,0xEA6E4721,0xEA6E4722"/> <!--Field lots-->
+ <PROPERTY ID="0x27812833" Value="0x05"/>       <!--Purpose-->
+ <PROPERTY ID="0x27812832" Value="0x01"/>  <!--Wealth-->
+ <PROPERTY ID="0x8cb3511f" Value="0x00004100,0x00001010,0x00003110"/>        <!--Occupant Types-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001002,0x00014100,0x00003002,0x00011010,0x00013110,0x5C4DE000,0x5C4DE030,0x5C4DE034"/> <!--OccupantGroups-->
+ <PROPERTY ID="0x2C8F8746" Value="0x5C4DE137"/>  <!--Examplar Category-->
+ <PROPERTY ID="0x29244db5" Value="50"/> <!--Flammability-->
+ <PROPERTY ID="0x68EE9764" Value="5,6,0,0"/> <!--Pollution radii-->
+ <PROPERTY ID="0x27812834" Eval="0x00004100,Cap1,0x00001010,Cap2,0x00003110,Cap3"/> <!--Capacity Satisfied-->
+ <PROPERTY ID="0xaa1dd401" Eval="False"/> <!--Building Is Wall-to-Wall-->
+ <PROPERTY ID="0xaa1dd402" Eval="False"/> <!--Building Styles PIMX Template Marker-->
+</PROPERTIES>
+</CATEGORY>
+<CATEGORY Name="(I-a/R/CS $) Farm with Farmhouse and Farm Shop W2W" ID="0x5C4DE138" ParentID="0x5C4DE130">
+<HELP>
+Mixed-use agriculture wall-to-wall: a farm with the farmer's home and a farm shop. 80% of the floor space is agriculture (I-a jobs), 10% homes (R $), 10% shop (CS $ jobs). Uses the I-a field lots.  To create this mixed-use plug-in drag a model to this category.
+</HELP>
+<FILTERS>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE034"/>
+ <NEEDED ID="0xaa1dd396" Value="0xB5C00DDE"/>
+</FILTERS>
+<PROPERTIES>
+ <eval name="BaseCapacity" value="2+int(BiasedVol/(3*250))"/>
+ <eval name="BiasedBC" value ="int( round( min( 50., BaseCapacity ) * max( 1., sqrt( BaseCapacity/50. ) ) ) )"/>
+ <eval name="Cap1" value="max(1,2+int( BiasedVol*0.8/(3*250) ))"/>
+ <eval name="Cap2" value="max(1,round( 3*0.1 + BiasedVol*0.1/(3*12.42) ))"/>
+ <eval name="Cap3" value="max(1,round( 3*0.1 + BiasedVol*0.1/(3*10.0) ))"/>
+ <eval name="Worth" value="int( 30. +10./3.*Height*3.0)"/>
+ <eval name="BuildingValueFactor" value="154.830001"/>
+ <eval name="AirPollutionFactor" value="0.125"/>
+ <eval name="WaterPollutionFactor" value="0.25"/>
+ <eval name="GarbagePollutionFactor" value="0.2"/>
+ <eval name="PowerConsumedFactor" value="0.400000"/>
+ <eval name="WaterConsumedFactor" value="5.000000"/>
+ <eval name="WaterConsumedConstant" value="0.0"/>
+ <PROPERTY ID="0x2a499f85" Eval="QueryForIndustrial"/> <!--Query Examplar -->
+ <PROPERTY ID="0xaa1dd397" Set="0xAA8A4B05"/> <!--SFX:Query Sound-->
+ <PROPERTY ID="0x29B55F73" Value="0x00024100,0x2A6E4309,0x2A6E431D,0xAA6E4328,0x6A6E4332,0xEA6E4721,0xEA6E4722"/> <!--Field lots-->
+ <PROPERTY ID="0x27812833" Value="0x05"/>       <!--Purpose-->
+ <PROPERTY ID="0x27812832" Value="0x01"/>  <!--Wealth-->
+ <PROPERTY ID="0x8cb3511f" Value="0x00004100,0x00001010,0x00003110"/>        <!--Occupant Types-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001002,0x00014100,0x00003002,0x00011010,0x00013110,0x5C4DE000,0x5C4DE030,0x5C4DE034,0xB5C00DDE"/> <!--OccupantGroups-->
+ <PROPERTY ID="0x2C8F8746" Value="0x5C4DE138"/>  <!--Examplar Category-->
+ <PROPERTY ID="0x29244db5" Value="50"/> <!--Flammability-->
+ <PROPERTY ID="0x68EE9764" Value="5,6,0,0"/> <!--Pollution radii-->
+ <PROPERTY ID="0x27812834" Eval="0x00004100,Cap1,0x00001010,Cap2,0x00003110,Cap3"/> <!--Capacity Satisfied-->
  <PROPERTY ID="0xaa1dd401" Eval="True"/> <!--Building Is Wall-to-Wall-->
  <PROPERTY ID="0xaa1dd402" Eval="False"/> <!--Building Styles PIMX Template Marker-->
 </PROPERTIES>
