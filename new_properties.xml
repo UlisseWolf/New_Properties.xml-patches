@@ -12245,6 +12245,7 @@ This selection will filter the display to only show deathcare Cemetery plug-ins 
  <PROPERTY ID="0x091B42A2" Remove="091B42A2"/><!--Hospital Coverage Radius: not a hospital-->
  <PROPERTY ID="0x2921A9CC" Remove="2921A9CC"/><!--Hospital Population vs. Distance: not a hospital-->
  <PROPERTY ID="0x69220415" Remove="69220415"/><!--Hospital Patient Capacity: not a hospital-->
+ <PROPERTY ID="0xEA3209F8" Remove="EA3209F8"/><!--Conditional Building: removed-->
  <PROPERTY ID="0x27812851" Eval="int(-LotSizeX*LotSizeY),int(1+LotSizeX*LotSizeY/8.0),1,0"/><!--Pollution at center-->
  <PROPERTY ID="0x2A499F85" Eval="0xCA8B96C2"/><!--Query exemplar GUID: cemetery query with the SC4SIM deathcare rows-->
  <PROPERTY ID="0x4AA60EBC" Eval="int(Graves)"/><!--Catalog Capacity: graves-->
@@ -12282,6 +12283,7 @@ This selection will filter the display to only show Crematorium plug-ins (SC4SIM
  <PROPERTY ID="0x091B42A2" Remove="091B42A2"/><!--Hospital Coverage Radius: not a hospital-->
  <PROPERTY ID="0x2921A9CC" Remove="2921A9CC"/><!--Hospital Population vs. Distance: not a hospital-->
  <PROPERTY ID="0x69220415" Remove="69220415"/><!--Hospital Patient Capacity: not a hospital-->
+ <PROPERTY ID="0xEA3209F8" Remove="EA3209F8"/><!--Conditional Building: removed-->
  <PROPERTY ID="0x27812851" Eval="int(4+LotSizeX*LotSizeY/2.0),0,1,0"/><!--Pollution at center: air, water, garbage, radiation-->
  <PROPERTY ID="0x2A499F85" Eval="0xCA8B96C2"/><!--Query exemplar GUID: cemetery query with the SC4SIM deathcare rows-->
  <PROPERTY ID="0x4AA60EBC" Eval="int(Cremations)"/><!--Catalog Capacity: bodies per month-->
