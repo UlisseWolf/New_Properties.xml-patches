@@ -6952,9 +6952,37 @@ List of groups this occupant belongs to.
     </OPTION>
     <OPTION Value="0x5C4DE000" Name="Building: Mixed-Use (R-C-I)">
     </OPTION>
-    <OPTION Value="0x5C4DE001" Name="Building: Mixed-Use Live-Work and Workshops">
+    <OPTION Value="0x5C4DE010" Name="Building: Mixed-Use Residential">
     </OPTION>
-    <OPTION Value="0x5C4DE002" Name="Building: Mixed-Use Farm and Farmhouse">
+    <OPTION Value="0x5C4DE020" Name="Building: Mixed-Use Commercial">
+    </OPTION>
+    <OPTION Value="0x5C4DE030" Name="Building: Mixed-Use Industrial">
+    </OPTION>
+    <OPTION Value="0x5C4DE011" Name="Building: Mixed-Use (R/CS $) Low Wealth">
+    </OPTION>
+    <OPTION Value="0x5C4DE012" Name="Building: Mixed-Use (R/CS $$) Medium Wealth">
+    </OPTION>
+    <OPTION Value="0x5C4DE013" Name="Building: Mixed-Use (R/CS $$$) High Wealth">
+    </OPTION>
+    <OPTION Value="0x5C4DE014" Name="Building: Mixed-Use (R/I-m $) Live-Work">
+    </OPTION>
+    <OPTION Value="0x5C4DE015" Name="Building: Mixed-Use (R/I-a $) Farmstead">
+    </OPTION>
+    <OPTION Value="0x5C4DE021" Name="Building: Mixed-Use (CS/R $) Low Wealth">
+    </OPTION>
+    <OPTION Value="0x5C4DE022" Name="Building: Mixed-Use (CS/R $$) Medium Wealth">
+    </OPTION>
+    <OPTION Value="0x5C4DE023" Name="Building: Mixed-Use (CS/R $$$) High Wealth">
+    </OPTION>
+    <OPTION Value="0x5C4DE024" Name="Building: Mixed-Use (CO/R $$) Medium Wealth">
+    </OPTION>
+    <OPTION Value="0x5C4DE025" Name="Building: Mixed-Use (CO/R $$$) High Wealth">
+    </OPTION>
+    <OPTION Value="0x5C4DE031" Name="Building: Mixed-Use (I-a/R $) Farm with Farmhouse">
+    </OPTION>
+    <OPTION Value="0x5C4DE032" Name="Building: Mixed-Use (I-m/R $$) Workshop with Flats">
+    </OPTION>
+    <OPTION Value="0x5C4DE033" Name="Building: Mixed-Use (I-ht/R $$$) Tech Campus">
     </OPTION>
     <OPTION Value="0x1900" Name="Building: VIP">
     </OPTION>
@@ -11438,8 +11466,7 @@ This selection will filter the display to only show mixed-use growables: buildin
 This selection will filter the display to only show mixed-use growables that grow as residential (Purpose Residence) in residential zones.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001000"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE010"/>
 </FILTERS>
 <PROPERTIES>
 </PROPERTIES>
@@ -11450,10 +11477,7 @@ This selection will filter the display to only show mixed-use growables that gro
 Mixed-use low wealth: homes above shops. 75% of the floor space is homes (R $), 25% shops (CS $ jobs).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011010"/>
- <NEEDED ID="0xaa1dd396" Value="0x00013110"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE011"/>
 </FILTERS>
 <PROPERTIES>
  <eval name="BaseCapacity" value="round( 3 + BiasedVol/(3*12.42) )"/>
@@ -11475,7 +11499,7 @@ Mixed-use low wealth: homes above shops. 75% of the floor space is homes (R $), 
  <PROPERTY ID="0x27812833" Value="0x01"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x01"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00001010,0x00003110"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001000,0x00011010,0x00013110,0x5C4DE000,0x00002000,0x00002001,0x00002002,0x00002003"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001000,0x00011010,0x00013110,0x5C4DE000,0x5C4DE010,0x5C4DE011,0x00002000,0x00002001,0x00002002,0x00002003"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE111"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="45"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="5,5,0,0"/> <!--Pollution radii-->
@@ -11489,10 +11513,7 @@ Mixed-use low wealth: homes above shops. 75% of the floor space is homes (R $), 
 Mixed-use medium wealth: homes above shops. 75% of the floor space is homes (R $$), 25% shops (CS $$ jobs).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011020"/>
- <NEEDED ID="0xaa1dd396" Value="0x00013120"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE012"/>
 </FILTERS>
 <PROPERTIES>
  <eval name="BaseCapacity" value="round( 3 + BiasedVol/(3*12.42) )"/>
@@ -11516,7 +11537,7 @@ Mixed-use medium wealth: homes above shops. 75% of the floor space is homes (R $
  <PROPERTY ID="0x27812833" Value="0x01"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x02"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00001010,0x00001020,0x00003110,0x00003120"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001000,0x00011020,0x00013120,0x5C4DE000,0x00002000,0x00002001,0x00002002,0x00002003"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001000,0x00011020,0x00013120,0x5C4DE000,0x5C4DE010,0x5C4DE012,0x00002000,0x00002001,0x00002002,0x00002003"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE112"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="40"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="5,6,0,0"/> <!--Pollution radii-->
@@ -11530,10 +11551,7 @@ Mixed-use medium wealth: homes above shops. 75% of the floor space is homes (R $
 Mixed-use high wealth: homes above shops. 75% of the floor space is homes (R $$$), 25% shops (CS $$$ jobs).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011030"/>
- <NEEDED ID="0xaa1dd396" Value="0x00013130"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE013"/>
 </FILTERS>
 <PROPERTIES>
  <eval name="BaseCapacity" value="round( 3 + BiasedVol/(3*12.42) )"/>
@@ -11559,7 +11577,7 @@ Mixed-use high wealth: homes above shops. 75% of the floor space is homes (R $$$
  <PROPERTY ID="0x27812833" Value="0x01"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x03"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00001010,0x00001020,0x00001030,0x00003110,0x00003120,0x00003130"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001000,0x00011030,0x00013130,0x5C4DE000,0x00002000,0x00002001,0x00002002,0x00002003"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001000,0x00011030,0x00013130,0x5C4DE000,0x5C4DE010,0x5C4DE013,0x00002000,0x00002001,0x00002002,0x00002003"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE113"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="35"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="6,7,0,0"/> <!--Pollution radii-->
@@ -11573,10 +11591,7 @@ Mixed-use high wealth: homes above shops. 75% of the floor space is homes (R $$$
 Mixed-use low wealth: homes with workshops. 75% of the floor space is homes (R $), 25% small manufacturing (I-m jobs).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011010"/>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE001"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE014"/>
 </FILTERS>
 <PROPERTIES>
  <eval name="BaseCapacity" value="round( 3 + BiasedVol/(3*12.42) )"/>
@@ -11598,7 +11613,7 @@ Mixed-use low wealth: homes with workshops. 75% of the floor space is homes (R $
  <PROPERTY ID="0x27812833" Value="0x01"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x01"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00001010,0x00004300"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001000,0x00011010,0x5C4DE000,0x5C4DE001,0x00002000,0x00002001,0x00002002,0x00002003"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001000,0x00011010,0x5C4DE000,0x5C4DE010,0x5C4DE014,0x00002000,0x00002001,0x00002002,0x00002003"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE114"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="45"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="5,5,0,0"/> <!--Pollution radii-->
@@ -11612,10 +11627,7 @@ Mixed-use low wealth: homes with workshops. 75% of the floor space is homes (R $
 Mixed-use low wealth: a farmhouse with a small farm. 75% of the floor space is homes (R $), 25% agriculture (I-a jobs).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011010"/>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE002"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE015"/>
 </FILTERS>
 <PROPERTIES>
  <eval name="BaseCapacity" value="round( 3 + BiasedVol/(3*12.42) )"/>
@@ -11637,7 +11649,7 @@ Mixed-use low wealth: a farmhouse with a small farm. 75% of the floor space is h
  <PROPERTY ID="0x27812833" Value="0x01"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x01"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00001010,0x00004100"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001000,0x00011010,0x5C4DE000,0x5C4DE002,0x00002000,0x00002001,0x00002002,0x00002003"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001000,0x00011010,0x5C4DE000,0x5C4DE010,0x5C4DE015,0x00002000,0x00002001,0x00002002,0x00002003"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE115"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="45"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="5,5,0,0"/> <!--Pollution radii-->
@@ -11651,10 +11663,7 @@ Mixed-use low wealth: a farmhouse with a small farm. 75% of the floor space is h
 Mixed-use low wealth wall-to-wall: homes above shops. 75% of the floor space is homes (R $), 25% shops (CS $ jobs).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011010"/>
- <NEEDED ID="0xaa1dd396" Value="0x00013110"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE011"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00DDE"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00B05"/>
 </FILTERS>
@@ -11678,7 +11687,7 @@ Mixed-use low wealth wall-to-wall: homes above shops. 75% of the floor space is 
  <PROPERTY ID="0x27812833" Value="0x01"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x01"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00001010,0x00003110"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001000,0x00011010,0x00013110,0x5C4DE000,0x00002000,0x00002001,0x00002002,0x00002003,0xB5C00DDE,0xB5C00B05"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001000,0x00011010,0x00013110,0x5C4DE000,0x5C4DE010,0x5C4DE011,0x00002000,0x00002001,0x00002002,0x00002003,0xB5C00DDE,0xB5C00B05"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE116"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="45"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="5,5,0,0"/> <!--Pollution radii-->
@@ -11692,10 +11701,7 @@ Mixed-use low wealth wall-to-wall: homes above shops. 75% of the floor space is 
 Mixed-use medium wealth wall-to-wall: homes above shops. 75% of the floor space is homes (R $$), 25% shops (CS $$ jobs).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011020"/>
- <NEEDED ID="0xaa1dd396" Value="0x00013120"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE012"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00DDE"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00B05"/>
 </FILTERS>
@@ -11721,7 +11727,7 @@ Mixed-use medium wealth wall-to-wall: homes above shops. 75% of the floor space 
  <PROPERTY ID="0x27812833" Value="0x01"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x02"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00001010,0x00001020,0x00003110,0x00003120"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001000,0x00011020,0x00013120,0x5C4DE000,0x00002000,0x00002001,0x00002002,0x00002003,0xB5C00DDE,0xB5C00B05"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001000,0x00011020,0x00013120,0x5C4DE000,0x5C4DE010,0x5C4DE012,0x00002000,0x00002001,0x00002002,0x00002003,0xB5C00DDE,0xB5C00B05"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE117"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="40"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="5,6,0,0"/> <!--Pollution radii-->
@@ -11735,10 +11741,7 @@ Mixed-use medium wealth wall-to-wall: homes above shops. 75% of the floor space 
 Mixed-use high wealth wall-to-wall: homes above shops. 75% of the floor space is homes (R $$$), 25% shops (CS $$$ jobs).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011030"/>
- <NEEDED ID="0xaa1dd396" Value="0x00013130"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE013"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00DDE"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00B05"/>
 </FILTERS>
@@ -11766,7 +11769,7 @@ Mixed-use high wealth wall-to-wall: homes above shops. 75% of the floor space is
  <PROPERTY ID="0x27812833" Value="0x01"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x03"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00001010,0x00001020,0x00001030,0x00003110,0x00003120,0x00003130"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001000,0x00011030,0x00013130,0x5C4DE000,0x00002000,0x00002001,0x00002002,0x00002003,0xB5C00DDE,0xB5C00B05"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001000,0x00011030,0x00013130,0x5C4DE000,0x5C4DE010,0x5C4DE013,0x00002000,0x00002001,0x00002002,0x00002003,0xB5C00DDE,0xB5C00B05"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE118"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="35"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="6,7,0,0"/> <!--Pollution radii-->
@@ -11780,10 +11783,7 @@ Mixed-use high wealth wall-to-wall: homes above shops. 75% of the floor space is
 Mixed-use low wealth wall-to-wall: homes with workshops. 75% of the floor space is homes (R $), 25% small manufacturing (I-m jobs).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011010"/>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE001"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE014"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00DDE"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00B05"/>
 </FILTERS>
@@ -11807,7 +11807,7 @@ Mixed-use low wealth wall-to-wall: homes with workshops. 75% of the floor space 
  <PROPERTY ID="0x27812833" Value="0x01"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x01"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00001010,0x00004300"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001000,0x00011010,0x5C4DE000,0x5C4DE001,0x00002000,0x00002001,0x00002002,0x00002003,0xB5C00DDE,0xB5C00B05"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001000,0x00011010,0x5C4DE000,0x5C4DE010,0x5C4DE014,0x00002000,0x00002001,0x00002002,0x00002003,0xB5C00DDE,0xB5C00B05"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE119"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="45"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="5,5,0,0"/> <!--Pollution radii-->
@@ -11821,10 +11821,7 @@ Mixed-use low wealth wall-to-wall: homes with workshops. 75% of the floor space 
 Mixed-use low wealth wall-to-wall: a farmhouse with a small farm. 75% of the floor space is homes (R $), 25% agriculture (I-a jobs).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011010"/>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE002"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE015"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00DDE"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00B05"/>
 </FILTERS>
@@ -11848,7 +11845,7 @@ Mixed-use low wealth wall-to-wall: a farmhouse with a small farm. 75% of the flo
  <PROPERTY ID="0x27812833" Value="0x01"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x01"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00001010,0x00004100"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001000,0x00011010,0x5C4DE000,0x5C4DE002,0x00002000,0x00002001,0x00002002,0x00002003,0xB5C00DDE,0xB5C00B05"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001000,0x00011010,0x5C4DE000,0x5C4DE010,0x5C4DE015,0x00002000,0x00002001,0x00002002,0x00002003,0xB5C00DDE,0xB5C00B05"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE11A"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="45"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="5,5,0,0"/> <!--Pollution radii-->
@@ -11862,8 +11859,7 @@ Mixed-use low wealth wall-to-wall: a farmhouse with a small farm. 75% of the flo
 This selection will filter the display to only show mixed-use growables that grow as commercial (Purpose Services or Office) in commercial zones.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001001"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE020"/>
 </FILTERS>
 <PROPERTIES>
 </PROPERTIES>
@@ -11874,10 +11870,7 @@ This selection will filter the display to only show mixed-use growables that gro
 Mixed-use low wealth: shops with apartments. 60% of the floor space is shops (CS $ jobs), 40% homes (R $).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001001"/>
- <NEEDED ID="0xaa1dd396" Value="0x00013110"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011010"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE021"/>
 </FILTERS>
 <PROPERTIES>
  <eval name="BaseCapacity" value="round( 3 + BiasedVol/(3*10.0) )"/>
@@ -11897,7 +11890,7 @@ Mixed-use low wealth: shops with apartments. 60% of the floor space is shops (CS
  <PROPERTY ID="0x27812833" Value="0x02"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x01"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00003110,0x00001010"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001001,0x00013110,0x00011010,0x5C4DE000,0x00002000,0x00002001,0x00002002,0x00002003"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001001,0x00013110,0x00011010,0x5C4DE000,0x5C4DE020,0x5C4DE021,0x00002000,0x00002001,0x00002002,0x00002003"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE121"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="45"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="5,5,0,0"/> <!--Pollution radii-->
@@ -11911,10 +11904,7 @@ Mixed-use low wealth: shops with apartments. 60% of the floor space is shops (CS
 Mixed-use medium wealth: shops with apartments. 60% of the floor space is shops (CS $$ jobs), 40% homes (R $$).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001001"/>
- <NEEDED ID="0xaa1dd396" Value="0x00013120"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011020"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE022"/>
 </FILTERS>
 <PROPERTIES>
  <eval name="BaseCapacity" value="round( 3 + BiasedVol/(3*10.0) )"/>
@@ -11936,7 +11926,7 @@ Mixed-use medium wealth: shops with apartments. 60% of the floor space is shops 
  <PROPERTY ID="0x27812833" Value="0x02"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x02"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00003110,0x00003120,0x00001010,0x00001020"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001001,0x00013120,0x00011020,0x5C4DE000,0x00002000,0x00002001,0x00002002,0x00002003"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001001,0x00013120,0x00011020,0x5C4DE000,0x5C4DE020,0x5C4DE022,0x00002000,0x00002001,0x00002002,0x00002003"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE122"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="40"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="5,6,0,0"/> <!--Pollution radii-->
@@ -11950,10 +11940,7 @@ Mixed-use medium wealth: shops with apartments. 60% of the floor space is shops 
 Mixed-use high wealth: shops with apartments. 60% of the floor space is shops (CS $$$ jobs), 40% homes (R $$$).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001001"/>
- <NEEDED ID="0xaa1dd396" Value="0x00013130"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011030"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE023"/>
 </FILTERS>
 <PROPERTIES>
  <eval name="BaseCapacity" value="round( 3 + BiasedVol/(3*10.0) )"/>
@@ -11977,7 +11964,7 @@ Mixed-use high wealth: shops with apartments. 60% of the floor space is shops (C
  <PROPERTY ID="0x27812833" Value="0x02"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x03"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00003110,0x00003120,0x00003130,0x00001010,0x00001020,0x00001030"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001001,0x00013130,0x00011030,0x5C4DE000,0x00002000,0x00002001,0x00002002,0x00002003"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001001,0x00013130,0x00011030,0x5C4DE000,0x5C4DE020,0x5C4DE023,0x00002000,0x00002001,0x00002002,0x00002003"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE123"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="35"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="6,7,0,0"/> <!--Pollution radii-->
@@ -11991,10 +11978,7 @@ Mixed-use high wealth: shops with apartments. 60% of the floor space is shops (C
 Mixed-use medium wealth: offices with apartments. 60% of the floor space is offices (CO $$ jobs), 40% homes (R $$).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001001"/>
- <NEEDED ID="0xaa1dd396" Value="0x00013320"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011020"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE024"/>
 </FILTERS>
 <PROPERTIES>
  <eval name="BaseCapacity" value="round( 3 + BiasedVol/(3*22.5) )"/>
@@ -12015,7 +11999,7 @@ Mixed-use medium wealth: offices with apartments. 60% of the floor space is offi
  <PROPERTY ID="0x27812833" Value="0x03"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x02"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00003320,0x00001010,0x00001020"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001001,0x00013320,0x00011020,0x5C4DE000,0x00002000,0x00002001,0x00002002,0x00002003"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001001,0x00013320,0x00011020,0x5C4DE000,0x5C4DE020,0x5C4DE024,0x00002000,0x00002001,0x00002002,0x00002003"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE124"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="40"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="5,6,0,0"/> <!--Pollution radii-->
@@ -12029,10 +12013,7 @@ Mixed-use medium wealth: offices with apartments. 60% of the floor space is offi
 Mixed-use high wealth: offices with apartments. 60% of the floor space is offices (CO $$$ jobs), 40% homes (R $$$).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001001"/>
- <NEEDED ID="0xaa1dd396" Value="0x00013330"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011030"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE025"/>
 </FILTERS>
 <PROPERTIES>
  <eval name="BaseCapacity" value="round( 3 + BiasedVol/(3*22.5) )"/>
@@ -12055,7 +12036,7 @@ Mixed-use high wealth: offices with apartments. 60% of the floor space is office
  <PROPERTY ID="0x27812833" Value="0x03"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x03"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00003320,0x00003330,0x00001010,0x00001020,0x00001030"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001001,0x00013330,0x00011030,0x5C4DE000,0x00002000,0x00002001,0x00002002,0x00002003"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001001,0x00013330,0x00011030,0x5C4DE000,0x5C4DE020,0x5C4DE025,0x00002000,0x00002001,0x00002002,0x00002003"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE125"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="35"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="6,7,0,0"/> <!--Pollution radii-->
@@ -12069,10 +12050,7 @@ Mixed-use high wealth: offices with apartments. 60% of the floor space is office
 Mixed-use low wealth wall-to-wall: shops with apartments. 60% of the floor space is shops (CS $ jobs), 40% homes (R $).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001001"/>
- <NEEDED ID="0xaa1dd396" Value="0x00013110"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011010"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE021"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00DDE"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00A05"/>
 </FILTERS>
@@ -12094,7 +12072,7 @@ Mixed-use low wealth wall-to-wall: shops with apartments. 60% of the floor space
  <PROPERTY ID="0x27812833" Value="0x02"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x01"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00003110,0x00001010"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001001,0x00013110,0x00011010,0x5C4DE000,0x00002000,0x00002001,0x00002002,0x00002003,0xB5C00DDE,0xB5C00A05"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001001,0x00013110,0x00011010,0x5C4DE000,0x5C4DE020,0x5C4DE021,0x00002000,0x00002001,0x00002002,0x00002003,0xB5C00DDE,0xB5C00A05"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE126"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="45"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="5,5,0,0"/> <!--Pollution radii-->
@@ -12108,10 +12086,7 @@ Mixed-use low wealth wall-to-wall: shops with apartments. 60% of the floor space
 Mixed-use medium wealth wall-to-wall: shops with apartments. 60% of the floor space is shops (CS $$ jobs), 40% homes (R $$).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001001"/>
- <NEEDED ID="0xaa1dd396" Value="0x00013120"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011020"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE022"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00DDE"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00A05"/>
 </FILTERS>
@@ -12135,7 +12110,7 @@ Mixed-use medium wealth wall-to-wall: shops with apartments. 60% of the floor sp
  <PROPERTY ID="0x27812833" Value="0x02"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x02"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00003110,0x00003120,0x00001010,0x00001020"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001001,0x00013120,0x00011020,0x5C4DE000,0x00002000,0x00002001,0x00002002,0x00002003,0xB5C00DDE,0xB5C00A05"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001001,0x00013120,0x00011020,0x5C4DE000,0x5C4DE020,0x5C4DE022,0x00002000,0x00002001,0x00002002,0x00002003,0xB5C00DDE,0xB5C00A05"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE127"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="40"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="5,6,0,0"/> <!--Pollution radii-->
@@ -12149,10 +12124,7 @@ Mixed-use medium wealth wall-to-wall: shops with apartments. 60% of the floor sp
 Mixed-use high wealth wall-to-wall: shops with apartments. 60% of the floor space is shops (CS $$$ jobs), 40% homes (R $$$).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001001"/>
- <NEEDED ID="0xaa1dd396" Value="0x00013130"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011030"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE023"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00DDE"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00A05"/>
 </FILTERS>
@@ -12178,7 +12150,7 @@ Mixed-use high wealth wall-to-wall: shops with apartments. 60% of the floor spac
  <PROPERTY ID="0x27812833" Value="0x02"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x03"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00003110,0x00003120,0x00003130,0x00001010,0x00001020,0x00001030"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001001,0x00013130,0x00011030,0x5C4DE000,0x00002000,0x00002001,0x00002002,0x00002003,0xB5C00DDE,0xB5C00A05"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001001,0x00013130,0x00011030,0x5C4DE000,0x5C4DE020,0x5C4DE023,0x00002000,0x00002001,0x00002002,0x00002003,0xB5C00DDE,0xB5C00A05"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE128"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="35"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="6,7,0,0"/> <!--Pollution radii-->
@@ -12192,10 +12164,7 @@ Mixed-use high wealth wall-to-wall: shops with apartments. 60% of the floor spac
 Mixed-use medium wealth wall-to-wall: offices with apartments. 60% of the floor space is offices (CO $$ jobs), 40% homes (R $$).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001001"/>
- <NEEDED ID="0xaa1dd396" Value="0x00013320"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011020"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE024"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00DDE"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00A05"/>
 </FILTERS>
@@ -12218,7 +12187,7 @@ Mixed-use medium wealth wall-to-wall: offices with apartments. 60% of the floor 
  <PROPERTY ID="0x27812833" Value="0x03"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x02"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00003320,0x00001010,0x00001020"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001001,0x00013320,0x00011020,0x5C4DE000,0x00002000,0x00002001,0x00002002,0x00002003,0xB5C00DDE,0xB5C00A05"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001001,0x00013320,0x00011020,0x5C4DE000,0x5C4DE020,0x5C4DE024,0x00002000,0x00002001,0x00002002,0x00002003,0xB5C00DDE,0xB5C00A05"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE129"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="40"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="5,6,0,0"/> <!--Pollution radii-->
@@ -12232,10 +12201,7 @@ Mixed-use medium wealth wall-to-wall: offices with apartments. 60% of the floor 
 Mixed-use high wealth wall-to-wall: offices with apartments. 60% of the floor space is offices (CO $$$ jobs), 40% homes (R $$$).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001001"/>
- <NEEDED ID="0xaa1dd396" Value="0x00013330"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011030"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE025"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00DDE"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00A05"/>
 </FILTERS>
@@ -12260,7 +12226,7 @@ Mixed-use high wealth wall-to-wall: offices with apartments. 60% of the floor sp
  <PROPERTY ID="0x27812833" Value="0x03"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x03"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00003320,0x00003330,0x00001010,0x00001020,0x00001030"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001001,0x00013330,0x00011030,0x5C4DE000,0x00002000,0x00002001,0x00002002,0x00002003,0xB5C00DDE,0xB5C00A05"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001001,0x00013330,0x00011030,0x5C4DE000,0x5C4DE020,0x5C4DE025,0x00002000,0x00002001,0x00002002,0x00002003,0xB5C00DDE,0xB5C00A05"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE12A"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="35"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="6,7,0,0"/> <!--Pollution radii-->
@@ -12274,8 +12240,7 @@ Mixed-use high wealth wall-to-wall: offices with apartments. 60% of the floor sp
 This selection will filter the display to only show mixed-use growables that grow as industry or agriculture (Purpose Agriculture, Manufacturing or High Tech) in industrial and agricultural zones.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001002"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE030"/>
 </FILTERS>
 <PROPERTIES>
 </PROPERTIES>
@@ -12286,11 +12251,7 @@ This selection will filter the display to only show mixed-use growables that gro
 Mixed-use agriculture: a farm with the farmer's home. 85% of the floor space is agriculture (I-a jobs), 15% homes (R $). Uses the I-a field lots.  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001002"/>
- <NEEDED ID="0xaa1dd396" Value="0x00014100"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011010"/>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE002"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE031"/>
 </FILTERS>
 <PROPERTIES>
  <eval name="BaseCapacity" value="2+int(BiasedVol/(3*250))"/>
@@ -12311,7 +12272,7 @@ Mixed-use agriculture: a farm with the farmer's home. 85% of the floor space is 
  <PROPERTY ID="0x27812833" Value="0x05"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x01"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00004100,0x00001010"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001002,0x00014100,0x00003002,0x00011010,0x5C4DE000,0x5C4DE002"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001002,0x00014100,0x00003002,0x00011010,0x5C4DE000,0x5C4DE030,0x5C4DE031"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE131"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="50"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="5,6,0,0"/> <!--Pollution radii-->
@@ -12325,11 +12286,7 @@ Mixed-use agriculture: a farm with the farmer's home. 85% of the floor space is 
 Mixed-use manufacturing: workshops with flats. 70% of the floor space is manufacturing (I-m jobs), 30% homes (R $$).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001002"/>
- <NEEDED ID="0xaa1dd396" Value="0x00014300"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011020"/>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE001"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE032"/>
 </FILTERS>
 <PROPERTIES>
  <eval name="BaseCapacity" value="2+int(BiasedVol/(3*30))"/>
@@ -12350,7 +12307,7 @@ Mixed-use manufacturing: workshops with flats. 70% of the floor space is manufac
  <PROPERTY ID="0x27812833" Value="0x07"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x02"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00004300,0x00001010,0x00001020"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001002,0x00014300,0x00011020,0x5C4DE000,0x5C4DE001"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001002,0x00014300,0x00011020,0x5C4DE000,0x5C4DE030,0x5C4DE032"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE132"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="70"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="9,13,0,0"/> <!--Pollution radii-->
@@ -12364,10 +12321,7 @@ Mixed-use manufacturing: workshops with flats. 70% of the floor space is manufac
 Mixed-use high tech: a research campus with residences. 70% of the floor space is high tech (I-ht jobs), 30% homes (R $$$).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001002"/>
- <NEEDED ID="0xaa1dd396" Value="0x00014400"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011030"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE033"/>
 </FILTERS>
 <PROPERTIES>
  <eval name="BaseCapacity" value="2+int(BiasedVol/(3*25))"/>
@@ -12389,7 +12343,7 @@ Mixed-use high tech: a research campus with residences. 70% of the floor space i
  <PROPERTY ID="0x27812833" Value="0x08"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x03"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00004400,0x00001010,0x00001020,0x00001030"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001002,0x00014400,0x00011030,0x5C4DE000"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001002,0x00014400,0x00011030,0x5C4DE000,0x5C4DE030,0x5C4DE033"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE133"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="45"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="6,7,0,0"/> <!--Pollution radii-->
@@ -12403,11 +12357,7 @@ Mixed-use high tech: a research campus with residences. 70% of the floor space i
 Mixed-use agriculture wall-to-wall: a farm with the farmer's home. 85% of the floor space is agriculture (I-a jobs), 15% homes (R $). Uses the I-a field lots.  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001002"/>
- <NEEDED ID="0xaa1dd396" Value="0x00014100"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011010"/>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE002"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE031"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00DDE"/>
 </FILTERS>
 <PROPERTIES>
@@ -12429,7 +12379,7 @@ Mixed-use agriculture wall-to-wall: a farm with the farmer's home. 85% of the fl
  <PROPERTY ID="0x27812833" Value="0x05"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x01"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00004100,0x00001010"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001002,0x00014100,0x00003002,0x00011010,0x5C4DE000,0x5C4DE002,0xB5C00DDE"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001002,0x00014100,0x00003002,0x00011010,0x5C4DE000,0x5C4DE030,0x5C4DE031,0xB5C00DDE"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE134"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="50"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="5,6,0,0"/> <!--Pollution radii-->
@@ -12443,11 +12393,7 @@ Mixed-use agriculture wall-to-wall: a farm with the farmer's home. 85% of the fl
 Mixed-use manufacturing wall-to-wall: workshops with flats. 70% of the floor space is manufacturing (I-m jobs), 30% homes (R $$).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001002"/>
- <NEEDED ID="0xaa1dd396" Value="0x00014300"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011020"/>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE001"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE032"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00DDE"/>
 </FILTERS>
 <PROPERTIES>
@@ -12469,7 +12415,7 @@ Mixed-use manufacturing wall-to-wall: workshops with flats. 70% of the floor spa
  <PROPERTY ID="0x27812833" Value="0x07"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x02"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00004300,0x00001010,0x00001020"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001002,0x00014300,0x00011020,0x5C4DE000,0x5C4DE001,0xB5C00DDE"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001002,0x00014300,0x00011020,0x5C4DE000,0x5C4DE030,0x5C4DE032,0xB5C00DDE"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE135"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="70"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="9,13,0,0"/> <!--Pollution radii-->
@@ -12483,10 +12429,7 @@ Mixed-use manufacturing wall-to-wall: workshops with flats. 70% of the floor spa
 Mixed-use high tech wall-to-wall: a research campus with residences. 70% of the floor space is high tech (I-ht jobs), 30% homes (R $$$).  To create this mixed-use plug-in drag a model to this category.
 </HELP>
 <FILTERS>
- <NEEDED ID="0xaa1dd396" Value="0x5C4DE000"/>
- <NEEDED ID="0xaa1dd396" Value="0x00001002"/>
- <NEEDED ID="0xaa1dd396" Value="0x00014400"/>
- <NEEDED ID="0xaa1dd396" Value="0x00011030"/>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DE033"/>
  <NEEDED ID="0xaa1dd396" Value="0xB5C00DDE"/>
 </FILTERS>
 <PROPERTIES>
@@ -12509,7 +12452,7 @@ Mixed-use high tech wall-to-wall: a research campus with residences. 70% of the 
  <PROPERTY ID="0x27812833" Value="0x08"/>       <!--Purpose-->
  <PROPERTY ID="0x27812832" Value="0x03"/>  <!--Wealth-->
  <PROPERTY ID="0x8cb3511f" Value="0x00004400,0x00001010,0x00001020,0x00001030"/>        <!--Occupant Types-->
- <PROPERTY ID="0xaa1dd396" Set="0x00001002,0x00014400,0x00011030,0x5C4DE000,0xB5C00DDE"/> <!--OccupantGroups-->
+ <PROPERTY ID="0xaa1dd396" Set="0x00001002,0x00014400,0x00011030,0x5C4DE000,0x5C4DE030,0x5C4DE033,0xB5C00DDE"/> <!--OccupantGroups-->
  <PROPERTY ID="0x2C8F8746" Value="0x5C4DE136"/>  <!--Examplar Category-->
  <PROPERTY ID="0x29244db5" Value="45"/> <!--Flammability-->
  <PROPERTY ID="0x68EE9764" Value="6,7,0,0"/> <!--Pollution radii-->
