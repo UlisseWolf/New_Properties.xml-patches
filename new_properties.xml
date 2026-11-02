@@ -5232,7 +5232,7 @@ LotConfigPropertyZoneTypes
     </OPTION>
     <OPTION Value="0x0000000C" Name="Seaport">
     </OPTION>
-    <OPTION Value="0x0000000D" Name="Spaceport">
+    <OPTION Value="0x0000000D" Name="I - Manufacturing">
     </OPTION>
     <OPTION Value="0x0000000E" Name="Landfill">
     </OPTION>
@@ -8445,7 +8445,9 @@ For use with Submenus DLL: the Button IDs of the submenus this building appears 
     </OPTION>
 	<OPTION Value="0xB7B594D6" Name="Medium Health">
     </OPTION>
-	<OPTION Value="0x5C4DD200" Name="Deathcare (SC4SIM)">
+	<OPTION Value="0x5C4DD200" Name="Cemeteries (SC4SIM Deathcare)">
+    </OPTION>
+	<OPTION Value="0x5C4DD201" Name="Crematoria (SC4SIM Deathcare)">
     </OPTION>
 	<OPTION Value="0xBC251B69" Name="Large Health">
     </OPTION>
@@ -12257,7 +12259,7 @@ This selection will filter the display to only show deathcare Cemetery plug-ins 
  <PROPERTY ID="0x8A2602B9" Eval="0x0050"/><!-- Item Order -->
  <PROPERTY ID="0xAA1DD396" Set="0x5C4DD101"/><!--OccupantGroups: Cemetery (SC4SIM Deathcare)-->
  <PROPERTY ID="0xAA1DD397" Set="0x4A4C65C6"/><!--SFX:Query Sound-->
- <PROPERTY ID="0xAA1DD399" Eval="0x5C4DD200"/><!--Building Submenus: Deathcare (SC4SIM)-->
+ <PROPERTY ID="0xAA1DD399" Eval="0x5C4DD200"/><!--Building Submenus: Cemeteries (SC4SIM Deathcare)-->
  <PROPERTY ID="0xAA60E745" Set="-100,12,100,0"/><!--Goofy Stat Response Curve-->
  <PROPERTY ID="0xEA54D283" Value="0x5C4DD400"/><!--Budget Item: Department: Deathcare (Custom Budget Departments DLL)-->
  <PROPERTY ID="0xEA54D284" Value="0x5C4DD401"/><!--Budget Item: Line-->
@@ -12298,7 +12300,7 @@ This selection will filter the display to only show Crematorium plug-ins (SC4SIM
  <PROPERTY ID="0x8A2602B9" Eval="0x0051"/><!-- Item Order -->
  <PROPERTY ID="0xAA1DD396" Set="0x5C4DD100"/><!--OccupantGroups: Crematorium (SC4SIM)-->
  <PROPERTY ID="0xAA1DD397" Set="0x4A4C65C6"/><!--SFX:Query Sound-->
- <PROPERTY ID="0xAA1DD399" Eval="0x5C4DD200"/><!--Building Submenus: Deathcare (SC4SIM)-->
+ <PROPERTY ID="0xAA1DD399" Eval="0x5C4DD201"/><!--Building Submenus: Crematoria (SC4SIM Deathcare)-->
  <PROPERTY ID="0xAA60E745" Set="-100,12,100,0"/><!--Goofy Stat Response Curve-->
  <PROPERTY ID="0xEA54D283" Value="0x5C4DD400"/><!--Budget Item: Department: Deathcare (Custom Budget Departments DLL)-->
  <PROPERTY ID="0xEA54D284" Value="0x5C4DD402"/><!--Budget Item: Line-->
