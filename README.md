@@ -33,7 +33,7 @@ Below are all the changes included in this version
 - Added additional buildings from the CAM expansions
 - Additional buildings and properties from the CAM expansions have been added
 - Ability to generate farms up to Stage 10 (Requires CAM or SPAM for Stages 4 and 5—Requires CAM for Stages 5 through 10)
-- SC4SIM deathcare (SC4SIM.dll 1.9.4 or later): the properties SC4SIM Deathcare Type, Capacity and Radius (0x5C4DD001-0x5C4DD003), the Crematorium occupant group (0x5C4DD100), the Cemetery generator filling them from the lot size and a new Crematorium generator
+- SC4SIM deathcare (SC4SIM.dll 1.9.4 or later): the properties SC4SIM Deathcare Type, Capacity and Radius (0x5C4DD001-0x5C4DD003), the occupant groups Crematorium (0x5C4DD100) and Cemetery (SC4SIM Deathcare, 0x5C4DD101), the Deathcare submenu (0x5C4DD200) and two generators under Hospital: Cemetery (SC4SIM Deathcare) and Crematorium (SC4SIM Deathcare). The Reward Cemetery generator is unchanged
 
 This version of New_property.xml is the version that always contains the latest changes available compared to the original version, which will have delayed updates (New Building & Patches).
 

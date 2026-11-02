@@ -6372,7 +6372,7 @@ Amount of trash burned per month
   </PROPERTY>
   <PROPERTY Name="SC4SIM Deathcare Type" ID="0x5C4DD001" Type="Uint32" Default="0x00000000" ShowAsHex="Y">
     <HELP>
-For use with SC4SIM.dll (SC4 System Integration Module, 1.9.4 or later): the deathcare service of this building. A cemetery fills one grave per burial and takes no one when full; a crematorium takes up to its capacity every month and never fills. Buildings in occupant group 0x1700 (Cemetery) count as cemeteries and buildings in 0x5C4DD100 (Crematorium) as crematoria even without this property.
+For use with SC4SIM.dll (SC4 System Integration Module, 1.9.4 or later): the deathcare service of this building. A cemetery fills one grave per burial and takes no one when full; a crematorium takes up to its capacity every month and never fills. Buildings in occupant group 0x1700 (Cemetery) or 0x5C4DD101 (Cemetery, SC4SIM Deathcare) count as cemeteries and buildings in 0x5C4DD100 (Crematorium) as crematoria even without this property.
 </HELP>
     <OPTION Value="0x00000000" Name="None">
     </OPTION>
@@ -6947,6 +6947,8 @@ List of groups this occupant belongs to.
     <OPTION Value="0x1702" Name="Building: Zoo">
     </OPTION>
     <OPTION Value="0x5C4DD100" Name="Building: Crematorium (SC4SIM)">
+    </OPTION>
+    <OPTION Value="0x5C4DD101" Name="Building: Cemetery (SC4SIM Deathcare)">
     </OPTION>
     <OPTION Value="0x1900" Name="Building: VIP">
     </OPTION>
@@ -8442,6 +8444,8 @@ For use with Submenus DLL: the Button IDs of the submenus this building appears 
 	<OPTION Value="0xB1F7AC5B" Name="Small Health">
     </OPTION>
 	<OPTION Value="0xB7B594D6" Name="Medium Health">
+    </OPTION>
+	<OPTION Value="0x5C4DD200" Name="Deathcare (SC4SIM)">
     </OPTION>
 	<OPTION Value="0xBC251B69" Name="Large Health">
     </OPTION>
@@ -12221,6 +12225,80 @@ This selection will filter the display to only show Hospital plug-ins.  To creat
  <PROPERTY ID="0xEA54D285" Value="0xCA565486"/><!--Budget Item: Purpose-->
  <PROPERTY ID="0xEA54D286" Eval="MCost"/><!--Budget Item: Cost-->
  <PROPERTY ID="0xAA1DD399" Eval="0xBC251B69"/><!--OccupantGroups for SubMenu-->
+</PROPERTIES>
+</CATEGORY>
+
+<CATEGORY Name="Cemetery (SC4SIM Deathcare)" ID="0xccb23669" ParentID="0xccb23662">
+<HELP>
+This selection will filter the display to only show deathcare Cemetery plug-ins (SC4SIM.dll 1.9.4 or later). To create one drag a model to this category. A cemetery buries the dead of the neighborhoods in its radius, one grave each, until it is full. The building is not a hospital: it has no Health occupant group (the residential simulator would count it as one), appears in the Deathcare submenu of the Health menu with the Submenus DLL, and in the Reward menu without it. Its monthly cost is a Health budget line.
+</HELP>
+<FILTERS>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DD101"/>
+</FILTERS>
+<PROPERTIES>
+ <eval name="Graves" value="40*LotSizeX*LotSizeY"/>
+ <eval name="Jobs1" value="1+int(LotSizeX*LotSizeY/8.0)"/>
+ <eval name="Jobs2" value="int(LotSizeX*LotSizeY/16.0)"/>
+ <eval name="Jobs3" value="0"/>
+ <eval name="MCost" value="10*int(1+LotSizeX*LotSizeY/4.0)"/>
+ <eval name="BCost" value="200+40*int(LotSizeX*LotSizeY/1.0)"/>
+ <PROPERTY ID="0x091B42A2" Remove="091B42A2"/><!--Hospital Coverage Radius: not a hospital-->
+ <PROPERTY ID="0x2921A9CC" Remove="2921A9CC"/><!--Hospital Population vs. Distance: not a hospital-->
+ <PROPERTY ID="0x69220415" Remove="69220415"/><!--Hospital Patient Capacity: not a hospital-->
+ <PROPERTY ID="0x27812851" Eval="int(-LotSizeX*LotSizeY),int(1+LotSizeX*LotSizeY/8.0),1,0"/><!--Pollution at center-->
+ <PROPERTY ID="0x2A499F85" Eval="0xCA8B96C2"/><!--Query exemplar GUID: cemetery query with the SC4SIM deathcare rows-->
+ <PROPERTY ID="0x4AA60EBC" Eval="int(Graves)"/><!--Catalog Capacity: graves-->
+ <PROPERTY ID="0x5C4DD001" Value="0x00000001"/><!--SC4SIM Deathcare Type: Cemetery-->
+ <PROPERTY ID="0x5C4DD002" Eval="int(Graves)"/><!--SC4SIM Deathcare Capacity: graves-->
+ <PROPERTY ID="0x5C4DD003" Eval="768.0+64.0*int(sqrt(LotSizeX*LotSizeY))"/><!--SC4SIM Deathcare Radius (meters)-->
+ <PROPERTY ID="0x68EE9764" Value="3,3,0,0"/><!--Pollution radii-->
+ <PROPERTY ID="0x6AD54804" Eval="MCost"/><!--Catalog Monthly Cost-->
+ <PROPERTY ID="0x8A2602B9" Eval="0x0050"/><!-- Item Order -->
+ <PROPERTY ID="0xAA1DD396" Set="0x0000150B,0x5C4DD101"/><!--OccupantGroups: Reward (menu without the Submenus DLL), Cemetery (SC4SIM Deathcare)-->
+ <PROPERTY ID="0xAA1DD397" Set="0x4A4C65C6"/><!--SFX:Query Sound-->
+ <PROPERTY ID="0xAA1DD399" Eval="0x5C4DD200"/><!--Building Submenus: Deathcare (SC4SIM)-->
+ <PROPERTY ID="0xAA60E745" Set="-100,12,100,0"/><!--Goofy Stat Response Curve-->
+ <PROPERTY ID="0xEA54D283" Value="0x09188F42"/><!--Budget Item: Department-->
+ <PROPERTY ID="0xEA54D284" Value="0x00000000"/><!--Budget Item: Line-->
+ <PROPERTY ID="0xEA54D285" Value="0xCA565486"/><!--Budget Item: Purpose-->
+ <PROPERTY ID="0xEA54D286" Eval="MCost"/><!--Budget Item: Cost-->
+</PROPERTIES>
+</CATEGORY>
+
+<CATEGORY Name="Crematorium (SC4SIM Deathcare)" ID="0xccb2366A" ParentID="0xccb23662">
+<HELP>
+This selection will filter the display to only show Crematorium plug-ins (SC4SIM.dll 1.9.4 or later). To create one drag a model to this category. A crematorium takes the dead of the neighborhoods in its radius up to its monthly capacity and never fills up, unlike a cemetery. The building is not a hospital: it has no Health occupant group, appears in the Deathcare submenu of the Health menu with the Submenus DLL, and in the Reward menu without it. Its monthly cost is a Health budget line.
+</HELP>
+<FILTERS>
+ <NEEDED ID="0xaa1dd396" Value="0x5C4DD100"/>
+</FILTERS>
+<PROPERTIES>
+ <eval name="Cremations" value="25*(1+int(LotSizeX*LotSizeY/4.0))"/>
+ <eval name="Jobs1" value="int(6*(1+LotSizeX*LotSizeY/4.0)/16.0)"/>
+ <eval name="Jobs2" value="int(6*(1+LotSizeX*LotSizeY/4.0)/16.0)"/>
+ <eval name="Jobs3" value="int(2*(1+LotSizeX*LotSizeY/4.0)/16.0)"/>
+ <eval name="MCost" value="20*int(1+Cremations/25.0)"/>
+ <eval name="BCost" value="1500+100*int(LotSizeX*LotSizeY/1.0)"/>
+ <PROPERTY ID="0x091B42A2" Remove="091B42A2"/><!--Hospital Coverage Radius: not a hospital-->
+ <PROPERTY ID="0x2921A9CC" Remove="2921A9CC"/><!--Hospital Population vs. Distance: not a hospital-->
+ <PROPERTY ID="0x69220415" Remove="69220415"/><!--Hospital Patient Capacity: not a hospital-->
+ <PROPERTY ID="0x27812851" Eval="int(4+LotSizeX*LotSizeY/2.0),0,1,0"/><!--Pollution at center: air, water, garbage, radiation-->
+ <PROPERTY ID="0x2A499F85" Eval="0xCA8B96C2"/><!--Query exemplar GUID: cemetery query with the SC4SIM deathcare rows-->
+ <PROPERTY ID="0x4AA60EBC" Eval="int(Cremations)"/><!--Catalog Capacity: bodies per month-->
+ <PROPERTY ID="0x5C4DD001" Value="0x00000002"/><!--SC4SIM Deathcare Type: Crematorium-->
+ <PROPERTY ID="0x5C4DD002" Eval="int(Cremations)"/><!--SC4SIM Deathcare Capacity: bodies per month-->
+ <PROPERTY ID="0x5C4DD003" Eval="1024.0+64.0*int(sqrt(LotSizeX*LotSizeY))"/><!--SC4SIM Deathcare Radius (meters)-->
+ <PROPERTY ID="0x68EE9764" Value="4,0,2,0"/><!--Pollution radii-->
+ <PROPERTY ID="0x6AD54804" Eval="MCost"/><!--Catalog Monthly Cost-->
+ <PROPERTY ID="0x8A2602B9" Eval="0x0051"/><!-- Item Order -->
+ <PROPERTY ID="0xAA1DD396" Set="0x0000150B,0x5C4DD100"/><!--OccupantGroups: Reward (menu without the Submenus DLL), Crematorium (SC4SIM)-->
+ <PROPERTY ID="0xAA1DD397" Set="0x4A4C65C6"/><!--SFX:Query Sound-->
+ <PROPERTY ID="0xAA1DD399" Eval="0x5C4DD200"/><!--Building Submenus: Deathcare (SC4SIM)-->
+ <PROPERTY ID="0xAA60E745" Set="-100,12,100,0"/><!--Goofy Stat Response Curve-->
+ <PROPERTY ID="0xEA54D283" Value="0x09188F42"/><!--Budget Item: Department-->
+ <PROPERTY ID="0xEA54D284" Value="0x00000000"/><!--Budget Item: Line-->
+ <PROPERTY ID="0xEA54D285" Value="0xCA565486"/><!--Budget Item: Purpose-->
+ <PROPERTY ID="0xEA54D286" Eval="MCost"/><!--Budget Item: Cost-->
 </PROPERTIES>
 </CATEGORY>
 
@@ -16605,7 +16683,6 @@ This selection will filter the display to only show Cemetery plug-ins.  To creat
  <eval name="WaterConsumedConstant" value="20.0"/>
  <eval name="PowerConsumedFactor" value="0.00"/>
  <eval name="PowerConsumedConstant" value="0.0"/>
- <eval name="Graves" value="40*LotSizeX*LotSizeY"/>
  <PROPERTY ID="0x099AFACD" Eval="200+40*int(LotSizeX*LotSizeY/1.0)"/> <!--Bulldoze cost-->
  <PROPERTY ID="0x27812832" Value="0x02"/>  <!--Wealth-->
  <PROPERTY ID="0x27812851" Eval="int(-LotSizeX*LotSizeY),int(1+LotSizeX*LotSizeY/8.0),1,0"/><!--Pollution at center-->
@@ -16617,48 +16694,7 @@ This selection will filter the display to only show Cemetery plug-ins.  To creat
  <PROPERTY ID="0xaa1dd396" Set="0x0000150B,0x00001700"/> <!--OccupantGroups-->
  <PROPERTY ID="0xaa1dd397" Set="0x4A4C65C6"/> <!--SFX:Query Sound-->
  <PROPERTY ID="0xaa60e745" Set="-100,12,100,0"/> <!--Goofy Stat Response Curve-->
- <PROPERTY ID="0x5C4DD001" Value="0x00000001"/> <!--SC4SIM Deathcare Type: Cemetery-->
- <PROPERTY ID="0x5C4DD002" Eval="int(Graves)"/> <!--SC4SIM Deathcare Capacity: graves-->
- <PROPERTY ID="0x5C4DD003" Eval="768.0+64.0*int(sqrt(LotSizeX*LotSizeY))"/> <!--SC4SIM Deathcare Radius (meters)-->
  <PROPERTY ID="0xca5b9305" Eval="int(sqrt((LotSizeX+LotSizeY)/2.)),220"/><!--Mayor rating effect-->
-</PROPERTIES>
-</CATEGORY>
-
-<CATEGORY Name="Crematorium" ID="0x2d8fbcAF" ParentID="0x2d8fbcA0">
-<HELP>
-This selection will filter the display to only show Crematorium plug-ins (SC4SIM deathcare, SC4SIM.dll 1.9.4 or later). To create a Crematorium plug-in drag a model to this category. In the lot editor this plug-in building can be found by choosing and replacing the building on any landmark lot. A crematorium takes the dead of the neighborhoods in its radius up to its monthly capacity and never fills up, unlike a cemetery.
-</HELP>
-<FILTERS>
- <NEEDED ID="0xAA1DD396" Value="0x5C4DD100"/>
-</FILTERS>
-<PROPERTIES>
- <eval name="Jobs1" value="int(6*(1+LotSizeX*LotSizeY/4.0)/16.0)"/>
- <eval name="Jobs2" value="int(6*(1+LotSizeX*LotSizeY/4.0)/16.0)"/>
- <eval name="Jobs3" value="int(2*(1+LotSizeX*LotSizeY/4.0)/16.0)"/>
- <eval name="LandmarkEffectFactor" value="0"/>
- <eval name="LandmarkEffectRadius" value="0"/>
- <eval name="ParkEffectFactor" value="0"/>
- <eval name="ParkEffectRadius" value="0"/>
- <eval name="WaterConsumedFactor" value="0.02"/>
- <eval name="WaterConsumedConstant" value="20.0"/>
- <eval name="PowerConsumedFactor" value="0.05"/>
- <eval name="PowerConsumedConstant" value="10.0"/>
- <eval name="Cremations" value="25*(1+int(LotSizeX*LotSizeY/4.0))"/>
- <PROPERTY ID="0x099AFACD" Eval="1500+100*int(LotSizeX*LotSizeY/1.0)"/> <!--Bulldoze cost-->
- <PROPERTY ID="0x27812832" Value="0x02"/>  <!--Wealth-->
- <PROPERTY ID="0x27812851" Eval="int(4+LotSizeX*LotSizeY/2.0),0,1,0"/><!--Pollution at center: air, water, garbage, radiation-->
- <PROPERTY ID="0x29244db5" Value="45"/> <!--Flammability-->
- <PROPERTY ID="0x2a499f85" Eval="0xCA8B96C2"/> <!--Query Examplar: cemetery query with the SC4SIM deathcare rows-->
- <PROPERTY ID="0x49CAC341" Eval="0"/><!--Plop Cost-->
- <PROPERTY ID="0x5C4DD001" Value="0x00000002"/> <!--SC4SIM Deathcare Type: Crematorium-->
- <PROPERTY ID="0x5C4DD002" Eval="int(Cremations)"/> <!--SC4SIM Deathcare Capacity: bodies per month-->
- <PROPERTY ID="0x5C4DD003" Eval="1024.0+64.0*int(sqrt(LotSizeX*LotSizeY))"/> <!--SC4SIM Deathcare Radius (meters)-->
- <PROPERTY ID="0x68ee9764" Value="4,0,2,0"/> <!--Pollution radii-->
- <PROPERTY ID="0x8a2602b9" Eval="0x0051"/><!-- Item Order -->
- <PROPERTY ID="0xaa1dd396" Set="0x0000150B,0x5C4DD100"/> <!--OccupantGroups: Reward, Crematorium (SC4SIM)-->
- <PROPERTY ID="0xaa1dd397" Set="0x4A4C65C6"/> <!--SFX:Query Sound-->
- <PROPERTY ID="0xaa60e745" Set="-100,12,100,0"/> <!--Goofy Stat Response Curve-->
- <PROPERTY ID="0xca5b9305" Eval="-int(sqrt((LotSizeX+LotSizeY)/2.)),110"/><!--Mayor rating effect-->
 </PROPERTIES>
 </CATEGORY>
 
