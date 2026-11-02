@@ -12230,7 +12230,7 @@ This selection will filter the display to only show Hospital plug-ins.  To creat
 
 <CATEGORY Name="Cemetery (SC4SIM Deathcare)" ID="0xccb23669" ParentID="0xccb23662">
 <HELP>
-This selection will filter the display to only show deathcare Cemetery plug-ins (SC4SIM.dll 1.9.4 or later). To create one drag a model to this category. A cemetery buries the dead of the neighborhoods in its radius, one grave each, until it is full. The building is not a hospital: it has no Health occupant group (the residential simulator would count it as one), appears in the Deathcare submenu of the Health menu (requires the Submenus DLL: without it the building is in no menu). Its monthly cost is a Health budget line.
+This selection will filter the display to only show deathcare Cemetery plug-ins (SC4SIM.dll 1.9.4 or later). To create one drag a model to this category. A cemetery buries the dead of the neighborhoods in its radius, one grave each, until it is full. The building is not a hospital: it has no Health occupant group (the residential simulator would count it as one), appears in the Deathcare submenu of the Health menu (requires the Submenus DLL: without it the building is in no menu). Its monthly cost is a line of the Deathcare budget department (Health and Education window) with the Custom Budget Departments DLL.
 </HELP>
 <FILTERS>
  <NEEDED ID="0xaa1dd396" Value="0x5C4DD101"/>
@@ -12259,16 +12259,19 @@ This selection will filter the display to only show deathcare Cemetery plug-ins 
  <PROPERTY ID="0xAA1DD397" Set="0x4A4C65C6"/><!--SFX:Query Sound-->
  <PROPERTY ID="0xAA1DD399" Eval="0x5C4DD200"/><!--Building Submenus: Deathcare (SC4SIM)-->
  <PROPERTY ID="0xAA60E745" Set="-100,12,100,0"/><!--Goofy Stat Response Curve-->
- <PROPERTY ID="0xEA54D283" Value="0x09188F42"/><!--Budget Item: Department-->
- <PROPERTY ID="0xEA54D284" Value="0x00000000"/><!--Budget Item: Line-->
- <PROPERTY ID="0xEA54D285" Value="0xCA565486"/><!--Budget Item: Purpose-->
+ <PROPERTY ID="0xEA54D283" Value="0x5C4DD400"/><!--Budget Item: Department: Deathcare (Custom Budget Departments DLL)-->
+ <PROPERTY ID="0xEA54D284" Value="0x5C4DD401"/><!--Budget Item: Line-->
+ <PROPERTY ID="0xEA54D285" Value="0x87BD3990"/><!--Budget Item: Purpose: custom department expense-->
  <PROPERTY ID="0xEA54D286" Eval="MCost"/><!--Budget Item: Cost-->
+ <PROPERTY ID="0x90222B81" Value="0x5C4DD400,0x6A357B7F"/><!--Budget: Custom Department Budget Group: Health and Education-->
+ <PROPERTY ID="0x4252085F" Value="0x5C4DD400,0x26350A44,0x5C4DD400"/><!--Budget: Custom Department Name Key: "Deathcare" (CAM_Locale_en.dat)-->
+ <PROPERTY ID="0x9EE1240F" Value="0x5C4DD401,0x00000000"/><!--Budget: Custom Line Item Cost Algorithm: Fixed-->
 </PROPERTIES>
 </CATEGORY>
 
 <CATEGORY Name="Crematorium (SC4SIM Deathcare)" ID="0xccb2366A" ParentID="0xccb23662">
 <HELP>
-This selection will filter the display to only show Crematorium plug-ins (SC4SIM.dll 1.9.4 or later). To create one drag a model to this category. A crematorium takes the dead of the neighborhoods in its radius up to its monthly capacity and never fills up, unlike a cemetery. The building is not a hospital: it has no Health occupant group, appears in the Deathcare submenu of the Health menu (requires the Submenus DLL: without it the building is in no menu). Its monthly cost is a Health budget line.
+This selection will filter the display to only show Crematorium plug-ins (SC4SIM.dll 1.9.4 or later). To create one drag a model to this category. A crematorium takes the dead of the neighborhoods in its radius up to its monthly capacity and never fills up, unlike a cemetery. The building is not a hospital: it has no Health occupant group, appears in the Deathcare submenu of the Health menu (requires the Submenus DLL: without it the building is in no menu). Its monthly cost is a line of the Deathcare budget department (Health and Education window) with the Custom Budget Departments DLL.
 </HELP>
 <FILTERS>
  <NEEDED ID="0xaa1dd396" Value="0x5C4DD100"/>
@@ -12285,7 +12288,7 @@ This selection will filter the display to only show Crematorium plug-ins (SC4SIM
  <PROPERTY ID="0x69220415" Remove="69220415"/><!--Hospital Patient Capacity: not a hospital-->
  <PROPERTY ID="0xEA3209F8" Remove="EA3209F8"/><!--Conditional Building: removed-->
  <PROPERTY ID="0x27812851" Eval="int(4+LotSizeX*LotSizeY/2.0),0,1,0"/><!--Pollution at center: air, water, garbage, radiation-->
- <PROPERTY ID="0x2A499F85" Eval="0xCA8B96C2"/><!--Query exemplar GUID: cemetery query with the SC4SIM deathcare rows-->
+ <PROPERTY ID="0x2A499F85" Eval="0x5C4DD300"/><!--Query exemplar GUID: crematorium query (SC4SIM, CAM_UI.dat)-->
  <PROPERTY ID="0x4AA60EBC" Eval="int(Cremations)"/><!--Catalog Capacity: bodies per month-->
  <PROPERTY ID="0x5C4DD001" Value="0x00000002"/><!--SC4SIM Deathcare Type: Crematorium-->
  <PROPERTY ID="0x5C4DD002" Eval="int(Cremations)"/><!--SC4SIM Deathcare Capacity: bodies per month-->
@@ -12297,10 +12300,13 @@ This selection will filter the display to only show Crematorium plug-ins (SC4SIM
  <PROPERTY ID="0xAA1DD397" Set="0x4A4C65C6"/><!--SFX:Query Sound-->
  <PROPERTY ID="0xAA1DD399" Eval="0x5C4DD200"/><!--Building Submenus: Deathcare (SC4SIM)-->
  <PROPERTY ID="0xAA60E745" Set="-100,12,100,0"/><!--Goofy Stat Response Curve-->
- <PROPERTY ID="0xEA54D283" Value="0x09188F42"/><!--Budget Item: Department-->
- <PROPERTY ID="0xEA54D284" Value="0x00000000"/><!--Budget Item: Line-->
- <PROPERTY ID="0xEA54D285" Value="0xCA565486"/><!--Budget Item: Purpose-->
+ <PROPERTY ID="0xEA54D283" Value="0x5C4DD400"/><!--Budget Item: Department: Deathcare (Custom Budget Departments DLL)-->
+ <PROPERTY ID="0xEA54D284" Value="0x5C4DD402"/><!--Budget Item: Line-->
+ <PROPERTY ID="0xEA54D285" Value="0x87BD3990"/><!--Budget Item: Purpose: custom department expense-->
  <PROPERTY ID="0xEA54D286" Eval="MCost"/><!--Budget Item: Cost-->
+ <PROPERTY ID="0x90222B81" Value="0x5C4DD400,0x6A357B7F"/><!--Budget: Custom Department Budget Group: Health and Education-->
+ <PROPERTY ID="0x4252085F" Value="0x5C4DD400,0x26350A44,0x5C4DD400"/><!--Budget: Custom Department Name Key: "Deathcare" (CAM_Locale_en.dat)-->
+ <PROPERTY ID="0x9EE1240F" Value="0x5C4DD402,0x00000000"/><!--Budget: Custom Line Item Cost Algorithm: Fixed-->
 </PROPERTIES>
 </CATEGORY>
 
