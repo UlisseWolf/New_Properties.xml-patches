@@ -12230,7 +12230,7 @@ This selection will filter the display to only show Hospital plug-ins.  To creat
 
 <CATEGORY Name="Cemetery (SC4SIM Deathcare)" ID="0xccb23669" ParentID="0xccb23662">
 <HELP>
-This selection will filter the display to only show deathcare Cemetery plug-ins (SC4SIM.dll 1.9.4 or later). To create one drag a model to this category. A cemetery buries the dead of the neighborhoods in its radius, one grave each, until it is full. The building is not a hospital: it has no Health occupant group (the residential simulator would count it as one), appears in the Deathcare submenu of the Health menu with the Submenus DLL, and in the Reward menu without it. Its monthly cost is a Health budget line.
+This selection will filter the display to only show deathcare Cemetery plug-ins (SC4SIM.dll 1.9.4 or later). To create one drag a model to this category. A cemetery buries the dead of the neighborhoods in its radius, one grave each, until it is full. The building is not a hospital: it has no Health occupant group (the residential simulator would count it as one), appears in the Deathcare submenu of the Health menu (requires the Submenus DLL: without it the building is in no menu). Its monthly cost is a Health budget line.
 </HELP>
 <FILTERS>
  <NEEDED ID="0xaa1dd396" Value="0x5C4DD101"/>
@@ -12254,7 +12254,7 @@ This selection will filter the display to only show deathcare Cemetery plug-ins 
  <PROPERTY ID="0x68EE9764" Value="3,3,0,0"/><!--Pollution radii-->
  <PROPERTY ID="0x6AD54804" Eval="MCost"/><!--Catalog Monthly Cost-->
  <PROPERTY ID="0x8A2602B9" Eval="0x0050"/><!-- Item Order -->
- <PROPERTY ID="0xAA1DD396" Set="0x0000150B,0x5C4DD101"/><!--OccupantGroups: Reward (menu without the Submenus DLL), Cemetery (SC4SIM Deathcare)-->
+ <PROPERTY ID="0xAA1DD396" Set="0x5C4DD101"/><!--OccupantGroups: Cemetery (SC4SIM Deathcare)-->
  <PROPERTY ID="0xAA1DD397" Set="0x4A4C65C6"/><!--SFX:Query Sound-->
  <PROPERTY ID="0xAA1DD399" Eval="0x5C4DD200"/><!--Building Submenus: Deathcare (SC4SIM)-->
  <PROPERTY ID="0xAA60E745" Set="-100,12,100,0"/><!--Goofy Stat Response Curve-->
@@ -12267,7 +12267,7 @@ This selection will filter the display to only show deathcare Cemetery plug-ins 
 
 <CATEGORY Name="Crematorium (SC4SIM Deathcare)" ID="0xccb2366A" ParentID="0xccb23662">
 <HELP>
-This selection will filter the display to only show Crematorium plug-ins (SC4SIM.dll 1.9.4 or later). To create one drag a model to this category. A crematorium takes the dead of the neighborhoods in its radius up to its monthly capacity and never fills up, unlike a cemetery. The building is not a hospital: it has no Health occupant group, appears in the Deathcare submenu of the Health menu with the Submenus DLL, and in the Reward menu without it. Its monthly cost is a Health budget line.
+This selection will filter the display to only show Crematorium plug-ins (SC4SIM.dll 1.9.4 or later). To create one drag a model to this category. A crematorium takes the dead of the neighborhoods in its radius up to its monthly capacity and never fills up, unlike a cemetery. The building is not a hospital: it has no Health occupant group, appears in the Deathcare submenu of the Health menu (requires the Submenus DLL: without it the building is in no menu). Its monthly cost is a Health budget line.
 </HELP>
 <FILTERS>
  <NEEDED ID="0xaa1dd396" Value="0x5C4DD100"/>
@@ -12291,7 +12291,7 @@ This selection will filter the display to only show Crematorium plug-ins (SC4SIM
  <PROPERTY ID="0x68EE9764" Value="4,0,2,0"/><!--Pollution radii-->
  <PROPERTY ID="0x6AD54804" Eval="MCost"/><!--Catalog Monthly Cost-->
  <PROPERTY ID="0x8A2602B9" Eval="0x0051"/><!-- Item Order -->
- <PROPERTY ID="0xAA1DD396" Set="0x0000150B,0x5C4DD100"/><!--OccupantGroups: Reward (menu without the Submenus DLL), Crematorium (SC4SIM)-->
+ <PROPERTY ID="0xAA1DD396" Set="0x5C4DD100"/><!--OccupantGroups: Crematorium (SC4SIM)-->
  <PROPERTY ID="0xAA1DD397" Set="0x4A4C65C6"/><!--SFX:Query Sound-->
  <PROPERTY ID="0xAA1DD399" Eval="0x5C4DD200"/><!--Building Submenus: Deathcare (SC4SIM)-->
  <PROPERTY ID="0xAA60E745" Set="-100,12,100,0"/><!--Goofy Stat Response Curve-->
