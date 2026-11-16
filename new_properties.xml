@@ -13190,7 +13190,8 @@ This selection will filter the display to only show Neutral plug-ins. To create 
  <NEEDED ID="0xAA1DD396" Value="0xeebca738"/>
 </FILTERS>
 <PROPERTIES>
- <eval name="ParkMinCost" value="0"/>
+ <PROPERTY ID="0xEA54D286" Eval="5+ParkMonthlyCost+int(50.+Worth/10.)"/><!--Budget Item: Cost (former formula, kept for this category)-->
+ <PROPERTY ID="0x49CAC341" Eval="ParkPlopInitial+ParkPlopCost"/><!--Plop Cost (former formula)-->
  <PROPERTY ID="0x27812832" Eval="0x00"/><!--Wealth-->
  <eval name="ParkBulldozeCost"     value="0"/>
  <eval name="ParkCAPRelief"        value="0"/>
@@ -13224,7 +13225,8 @@ This selection will filter the display to only show Neutral plug-ins. To create 
  <NEEDED ID="0xAA1DD396" Value="0xac4a6915"/>
 </FILTERS>
 <PROPERTIES>
- <eval name="ParkMinCost" value="0"/>
+ <PROPERTY ID="0xEA54D286" Eval="5+ParkMonthlyCost+int(50.+Worth/10.)"/><!--Budget Item: Cost (former formula, kept for this category)-->
+ <PROPERTY ID="0x49CAC341" Eval="ParkPlopInitial+ParkPlopCost"/><!--Plop Cost (former formula)-->
  <PROPERTY ID="0x27812832" Eval="0x00"/><!--Wealth-->
  <eval name="ParkBulldozeCost"     value="0"/>
  <eval name="ParkCAPRelief"        value="0"/>
