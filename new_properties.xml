@@ -12885,6 +12885,12 @@ This selection will filter the display to only show Park plug-ins. To create a p
  <NEEDED ID="0xaa1dd396" Value="0x1006"/>
 </FILTERS>
 <PROPERTIES>
+ <!-- SC4SIM balance (2026-11): a park costs what it gives. Monthly cost from its park effect (magnitude x radius / 45),
+      its landmark effect (/ 90) and its cap relief (per wealth / 2000), at least ParkMinCost, in steps of 5; the former
+      fixed 5 + int(50 + Worth/10) made every 1x1 park cost about 60 whatever its effect. Plop cost = PaybackCivic months.
+      Effects, radii and cap relief are unchanged. -->
+ <eval name="ParkMinCost" value="5"/>
+ <eval name="ParkCost" value="max(ParkMinCost,5*round(((max(0,ParkEffectValue)*ParkEffectRadius)/45.+(max(0,LandmarkEffectConst+LandmarkEffectValue)*LandmarkEffectRadius)/90.+ParkCAPRelief/2000.)/5.))"/>
  <eval name="Worth" value="int(30.+10./3.*CalculatedElevation*3.2)"/>
  <PROPERTY ID="0x099AFACD" Eval="Worth+ParkBulldozeCost"/><!--Bulldoze cost-->
  <PROPERTY ID="0x27812840" Eval="0x00001810,ParkCAPRelief,0x00001820,ParkCAPRelief,0x00001830,ParkCAPRelief"/><!--Demand Satisfied-->
@@ -12894,10 +12900,10 @@ This selection will filter the display to only show Park plug-ins. To create a p
  <PROPERTY ID="0x27812854" Eval="int(1+BiasedBC*PowerConsumedFactor)"/><!--Power Consumed-->
  <PROPERTY ID="0x29244DB5" Eval="0x0A"/><!--Flammability-->
  <PROPERTY ID="0x49beda31" Eval="Test(LessThan(Volume,619), 0x01, Test(LessThan(Volume,3068), 0x02, Test(LessThan(Volume,18869), 0x03, Test(LessThan(Volume,326987), 0x04, 0x05 ))))"/>    <!--MaxFireStage-->
- <PROPERTY ID="0x49CAC341" Eval="ParkPlopInitial+ParkPlopCost"/><!--Plop Cost-->
+ <PROPERTY ID="0x49CAC341" Eval="50*int(0.5+PaybackCivic*ParkCost/50.)"/><!--Plop Cost-->
  <PROPERTY ID="0x68EE9764" Eval="ParkAirRadius,ParkWaterRadius,0.00000000,0.00000000"/><!--Pollution radii-->
  <PROPERTY ID="0xC8ED2D84" Eval="ParkWaterConsumed+int(0+BiasedBC*WaterConsumedFactor)"/><!--Water Consumed-->
- <PROPERTY ID="0xEA54D286" Eval="5+ParkMonthlyCost+int(50.+Worth/10.)"/><!--Budget Item: Cost-->
+ <PROPERTY ID="0xEA54D286" Eval="ParkCost"/><!--Budget Item: Cost-->
  <PROPERTY ID="0x2A499F85" Eval="QueryForPark"/><!--Query exemplar GUID-->
  <PROPERTY ID="0x2C8F8746" Eval="0x8C8FBC47"/><!--Exemplar Category-->
  <PROPERTY ID="0x88FCD877" Eval="0x00000000"/><!--Building foundation-->
@@ -13184,6 +13190,7 @@ This selection will filter the display to only show Neutral plug-ins. To create 
  <NEEDED ID="0xAA1DD396" Value="0xeebca738"/>
 </FILTERS>
 <PROPERTIES>
+ <eval name="ParkMinCost" value="0"/>
  <PROPERTY ID="0x27812832" Eval="0x00"/><!--Wealth-->
  <eval name="ParkBulldozeCost"     value="0"/>
  <eval name="ParkCAPRelief"        value="0"/>
@@ -13217,6 +13224,7 @@ This selection will filter the display to only show Neutral plug-ins. To create 
  <NEEDED ID="0xAA1DD396" Value="0xac4a6915"/>
 </FILTERS>
 <PROPERTIES>
+ <eval name="ParkMinCost" value="0"/>
  <PROPERTY ID="0x27812832" Eval="0x00"/><!--Wealth-->
  <eval name="ParkBulldozeCost"     value="0"/>
  <eval name="ParkCAPRelief"        value="0"/>
