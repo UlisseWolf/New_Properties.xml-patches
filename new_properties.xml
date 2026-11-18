@@ -6391,6 +6391,31 @@ For use with SC4SIM.dll (1.9.4 or later): graves of a cemetery, or bodies a crem
 For use with SC4SIM.dll (1.9.4 or later): radius in meters (16 per cell) of the neighborhoods whose dead this building collects. Without it SC4SIM uses DEATHCARE_RADIUS (1024) of SC4SIM.ini.
 </HELP>
   </PROPERTY>
+  <PROPERTY Name="SC4SIM Pole Style: Regular Poles" ID="0x5C4DB001" Type="Uint32" Count="16" Default="0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000" ShowAsHex="Y">
+    <HELP>
+For use with SC4SIM.dll (1.12 or later), in a pole-style exemplar (type 0x6534284A, group 0x5C4DB000; Exemplar Name = style name): the power-pole prop instance for each combination of connected headings, in this order: None, X, DP, X+DP, Z, X+Z, DP+Z, X+DP+Z, DN, X+DN, DP+DN, X+DP+DN, Z+DN, X+Z+DN, DP+Z+DN, X+DP+Z+DN (X = x axis, Z = z axis, DP = +x+z diagonal, DN = +x-z diagonal). 0 = the vanilla pole for that combination. Same as the REG.* keys of a [PowerPoles.Name] section of SC4SIM.ini, which wins on an equal name.
+</HELP>
+  </PROPERTY>
+  <PROPERTY Name="SC4SIM Pole Style: FAR Poles" ID="0x5C4DB002" Type="Uint32" Count="16" Default="0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000 0x00000000" ShowAsHex="Y">
+    <HELP>
+For use with SC4SIM.dll (1.12 or later), in a pole-style exemplar: the power-pole prop instance for each FAR heading, in this order: FAR-1.5, FAR-2, FAR-3, FAR-6, each XP, XN, ZP, ZN (the FAR-* keys of SC4SIM.ini). 0 = fallback to the FAR default, then to the style's diagonal pole.
+</HELP>
+  </PROPERTY>
+  <PROPERTY Name="SC4SIM Pole Style: Inter-Pole Distance" ID="0x5C4DB003" Type="Uint32" Default="0x0000000A" ShowAsHex="N">
+    <HELP>
+For use with SC4SIM.dll (1.12 or later), in a pole-style exemplar: the maximum number of cells between poles while this style is active, 1-50 (vanilla 10). Without it the vanilla spacing is used.
+</HELP>
+  </PROPERTY>
+  <PROPERTY Name="SC4SIM Pole Style: Order" ID="0x5C4DB004" Type="Uint32" Default="0x0000000A" ShowAsHex="N">
+    <HELP>
+For use with SC4SIM.dll (1.12 or later), in a pole-style exemplar: position of the style in the Tab / Shift+Tab cycle of the power-line tool (lower first, then by exemplar instance). Vanilla always comes first.
+</HELP>
+  </PROPERTY>
+  <PROPERTY Name="SC4SIM Pole Style: FAR Default" ID="0x5C4DB005" Type="Bool" Default="False" ShowAsHex="Y">
+    <HELP>
+For use with SC4SIM.dll (1.12 or later), in a pole-style exemplar: True makes this exemplar the style-independent FAR fallback (like [PowerPoles.FAR] in SC4SIM.ini) instead of a style of the Tab cycle; only its FAR Poles property is used.
+</HELP>
+  </PROPERTY>
   <PROPERTY Name="kSC4FloraFamilyProperty" ID="0xa8f149c5" Type="Uint32" Count="-2" Default="0x00000001" ShowAsHex="Y">
     <HELP>
 kSC4FloraFamilyProperty
