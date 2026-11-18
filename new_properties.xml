@@ -6416,6 +6416,11 @@ For use with SC4SIM.dll (1.12 or later), in a pole-style exemplar: position of t
 For use with SC4SIM.dll (1.12 or later), in a pole-style exemplar: True makes this exemplar the style-independent FAR fallback (like [PowerPoles.FAR] in SC4SIM.ini) instead of a style of the Tab cycle; only its FAR Poles property is used.
 </HELP>
   </PROPERTY>
+  <PROPERTY Name="SC4SIM Graph Button Cell" ID="0x5C4DE350" Type="Uint32" Count="2" Default="0x00000000 0x00000006" ShowAsHex="N">
+    <HELP>
+For use with SC4SIM.dll (1.13 or later), in a graph exemplar (type 0x6534284A, group 0xCA4AD545): position of the graph's button in the Graphs window, column (0-2, left to right) and row (from the top; rows 0-5 hold the Maxis buttons, so the first free row is 6, up to 31). Without it, or when the cell is taken, the button goes to the next free cell.
+</HELP>
+  </PROPERTY>
   <PROPERTY Name="kSC4FloraFamilyProperty" ID="0xa8f149c5" Type="Uint32" Count="-2" Default="0x00000001" ShowAsHex="Y">
     <HELP>
 kSC4FloraFamilyProperty
