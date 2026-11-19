@@ -13746,7 +13746,7 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
         <eval name="FuelFactor" value="1.25"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.090*PowerOutput/10.))/5"/>
-        <eval name="CivicJobs" value="int(PowerOutput/1000.)"/>
+        <eval name="CivicJobs" value="int(PowerOutput/250.)"/><!-- staff per MW by technology: coal and nuclear plants have the most staff, gas, hydro and solar the fewest (was int(PowerOutput/1000.)) -->
         <eval name="Jobs1" value="1+int(CivicJobs*10/48.)"/>
         <eval name="Jobs2" value="0+int(CivicJobs*23/48.)"/>
         <eval name="Jobs3" value="0+int(CivicJobs*15/48.)"/>
@@ -13780,7 +13780,7 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
         <eval name="FuelFactor" value="0.9"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.140*PowerOutput/10.))/2"/>
-        <eval name="CivicJobs" value="int(PowerOutput/60.)"/>
+        <eval name="CivicJobs" value="int(PowerOutput/200.)"/><!-- staff per MW by technology: coal and nuclear plants have the most staff, gas, hydro and solar the fewest (was int(PowerOutput/60.)) -->
         <eval name="Jobs1" value="1+int(CivicJobs*28/48.)"/>
         <eval name="Jobs2" value="0+int(CivicJobs*15/48.)"/>
         <eval name="Jobs3" value="0+int(CivicJobs*5/48.)"/>
@@ -13814,7 +13814,7 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
         <eval name="FuelFactor" value="1.2"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="10*int(0.140*PowerOutput/10.)"/>
-        <eval name="CivicJobs" value="int(PowerOutput/60.)"/>
+        <eval name="CivicJobs" value="int(PowerOutput/200.)"/><!-- staff per MW by technology: coal and nuclear plants have the most staff, gas, hydro and solar the fewest (was int(PowerOutput/60.)) -->
         <eval name="Jobs1" value="1+int(CivicJobs*28/48.)"/>
         <eval name="Jobs2" value="0+int(CivicJobs*15/48.)"/>
         <eval name="Jobs3" value="0+int(CivicJobs*5/48.)"/>
@@ -13848,7 +13848,7 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
         <eval name="FuelFactor" value="1.1"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.110*PowerOutput/10.))/5"/>
-        <eval name="CivicJobs" value="int(PowerOutput/350.)"/>
+        <eval name="CivicJobs" value="int(PowerOutput/125.)"/><!-- staff per MW by technology: coal and nuclear plants have the most staff, gas, hydro and solar the fewest (was int(PowerOutput/350.)) -->
         <eval name="Jobs1" value="1+int(CivicJobs*20/48.)"/>
         <eval name="Jobs2" value="0+int(CivicJobs*20/48.)"/>
         <eval name="Jobs3" value="0+int(CivicJobs*8/48.)"/>
@@ -13922,7 +13922,7 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
         <eval name="FuelFactor" value="0.9"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.110*PowerOutput/10.))/2"/>
-        <eval name="CivicJobs" value="int(PowerOutput/150.)"/>
+        <eval name="CivicJobs" value="int(PowerOutput/125.)"/><!-- staff per MW by technology: coal and nuclear plants have the most staff, gas, hydro and solar the fewest (was int(PowerOutput/150.)) -->
         <eval name="Jobs1" value="1+int(CivicJobs*28/48.)"/>
         <eval name="Jobs2" value="0+int(CivicJobs*15/48.)"/>
         <eval name="Jobs3" value="0+int(CivicJobs*5/48.)"/>
@@ -13957,7 +13957,7 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
         <eval name="FuelFactor" value="0.8"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.110*PowerOutput/10.))/2"/>
-        <eval name="CivicJobs" value="int(PowerOutput/150.)"/>
+        <eval name="CivicJobs" value="int(PowerOutput/300.)"/><!-- staff per MW by technology: coal and nuclear plants have the most staff, gas, hydro and solar the fewest (was int(PowerOutput/150.)) -->
         <eval name="Jobs1" value="1+int(CivicJobs*28/48.)"/>
         <eval name="Jobs2" value="0+int(CivicJobs*15/48.)"/>
         <eval name="Jobs3" value="0+int(CivicJobs*5/48.)"/>
@@ -13990,7 +13990,7 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
         <eval name="FuelFactor" value="1.0"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.110*PowerOutput/10.))/2"/>
-        <eval name="CivicJobs" value="int(PowerOutput/150.)"/>
+        <eval name="CivicJobs" value="int(PowerOutput/300.)"/><!-- staff per MW by technology: coal and nuclear plants have the most staff, gas, hydro and solar the fewest (was int(PowerOutput/150.)) -->
         <eval name="Jobs1" value="1+int(CivicJobs*28/48.)"/>
         <eval name="Jobs2" value="0+int(CivicJobs*15/48.)"/>
         <eval name="Jobs3" value="0+int(CivicJobs*5/48.)"/>
@@ -14024,7 +14024,7 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
         <eval name="FuelFactor" value="1.5"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.250*PowerOutput/10.))/2"/>
-        <eval name="CivicJobs" value="int(PowerOutput/150.)"/>
+        <eval name="CivicJobs" value="int(PowerOutput/250.)"/><!-- staff per MW by technology: coal and nuclear plants have the most staff, gas, hydro and solar the fewest (was int(PowerOutput/150.)) -->
         <eval name="Jobs1" value="1+int(CivicJobs*15/48.)"/>
         <eval name="Jobs2" value="0+int(CivicJobs*18/48.)"/>
         <eval name="Jobs3" value="0+int(CivicJobs*15/48.)"/>
@@ -14059,7 +14059,7 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
         <eval name="FuelFactor" value="1.6"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.250*PowerOutput/10.))/2"/>
-        <eval name="CivicJobs" value="int(PowerOutput/150.)"/>
+        <eval name="CivicJobs" value="int(PowerOutput/300.)"/><!-- staff per MW by technology: coal and nuclear plants have the most staff, gas, hydro and solar the fewest (was int(PowerOutput/150.)) -->
         <eval name="Jobs1" value="1+int(CivicJobs*15/48.)"/>
         <eval name="Jobs2" value="0+int(CivicJobs*18/48.)"/>
         <eval name="Jobs3" value="0+int(CivicJobs*15/48.)"/>
@@ -14094,7 +14094,7 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
         <eval name="FuelFactor" value="1.5"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.100*PowerOutput/10.))/2"/>
-        <eval name="CivicJobs" value="int(PowerOutput/150.)"/>
+        <eval name="CivicJobs" value="int(PowerOutput/300.)"/><!-- staff per MW by technology: coal and nuclear plants have the most staff, gas, hydro and solar the fewest (was int(PowerOutput/150.)) -->
         <eval name="Jobs1" value="1+int(CivicJobs*15/48.)"/>
         <eval name="Jobs2" value="0+int(CivicJobs*18/48.)"/>
         <eval name="Jobs3" value="0+int(CivicJobs*15/48.)"/>
@@ -14130,7 +14130,7 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
         <eval name="FuelFactor" value="1.4"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.100*PowerOutput/10.))/2"/>
-        <eval name="CivicJobs" value="int(PowerOutput/150.)"/>
+        <eval name="CivicJobs" value="int(PowerOutput/300.)"/><!-- staff per MW by technology: coal and nuclear plants have the most staff, gas, hydro and solar the fewest (was int(PowerOutput/150.)) -->
         <eval name="Jobs1" value="1+int(CivicJobs*15/48.)"/>
         <eval name="Jobs2" value="0+int(CivicJobs*18/48.)"/>
         <eval name="Jobs3" value="0+int(CivicJobs*15/48.)"/>
@@ -14353,7 +14353,7 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
         <eval name="FuelFactor" value="1.2"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.250*PowerOutput/10.))/10"/>
-        <eval name="CivicJobs" value="int(PowerOutput/30.)"/>
+        <eval name="CivicJobs" value="int(PowerOutput/200.)"/><!-- staff per MW by technology: coal and nuclear plants have the most staff, gas, hydro and solar the fewest (was int(PowerOutput/30.)) -->
         <eval name="Jobs1" value="1+int(CivicJobs*20/48.)"/>
         <eval name="Jobs2" value="0+int(CivicJobs*20/48.)"/>
         <eval name="Jobs3" value="0+int(CivicJobs*8/48.)"/>
@@ -14421,7 +14421,7 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
       <PROPERTIES>
  <eval name="GarbageCost" value="max(25,25*int(0.5+0.1*CostPerResident*6.25*PopulationServed/25.))"/><!-- 0.1 x CostPerResident per resident at 20% reduction (RecycleFactor 1) -->
         <eval name="PopulationServed" value="500*(4+int(2*Volume/500.0))"/>
-        <eval name="CivicJobs" value="int(PopulationServed/1500.0)"/>
+        <eval name="CivicJobs" value="int(PopulationServed/750.0)"/><!-- one job per 750 residents served (was 1,500): recycling center 27,500 -> 39 jobs (Maxis 18 for 25,000) -->
         <eval name="Jobs1" value="3+int(CivicJobs*95/100.)"/>
         <eval name="Jobs2" value="0+int(CivicJobs*4/100.)"/>
         <eval name="Jobs3" value="0+int(CivicJobs*1/100.)"/>
@@ -14473,7 +14473,7 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
       <PROPERTIES>
  <eval name="GarbageCost" value="max(25,25*int(0.5+0.1*CostPerResident*RecycleFactor*PopulationServed/25.))"/><!-- 0.1 x CostPerResident per resident at 20% reduction (RecycleFactor 1) -->
         <eval name="PopulationServed" value="500*(4+int(2*Volume/500.0))"/>
-        <eval name="CivicJobs" value="int(PopulationServed/1500.0)"/>
+        <eval name="CivicJobs" value="int(PopulationServed/750.0)"/><!-- one job per 750 residents served (was 1,500): recycling center 27,500 -> 39 jobs (Maxis 18 for 25,000) -->
         <eval name="Jobs1" value="3+int(CivicJobs*95/100.)"/>
         <eval name="Jobs2" value="0+int(CivicJobs*4/100.)"/>
         <eval name="Jobs3" value="0+int(CivicJobs*1/100.)"/>
@@ -14837,7 +14837,7 @@ This selection will filter the display to only show Treatment plug-ins.  To crea
 </FILTERS>
 <PROPERTIES>
  <eval name="WaterOutput" value="100*int(1+1.5*Volume/100.)"/>
- <eval name="CivicJobs" value="int(Volume/150.)"/>
+ <eval name="CivicJobs" value="int(Volume/600.)"/><!-- about 30 jobs for the SC4SIM treatment plant (Maxis 16); Volume/150 gave 114 -->
  <PROPERTY ID="0x099AFACD" Eval="10*int(1+0.06*WaterOutput/10)"/><!--Bulldoze Cost-->
  <PROPERTY ID="0x0A4C13CB" Set="0x2A55B192"/><!--SFX:Ambience Decayed Sound-->
  <PROPERTY ID="0x27812841" Eval="0x00002010,Jobs1,0x00002020,Jobs2,0x00002030,Jobs3,0x00001810,Jobs1,0x00001820,Jobs2,0x00001830,Jobs3"/><!--Demand Created-->
@@ -14872,7 +14872,7 @@ This selection will filter the display to only show Sanitizer plug-ins.  To crea
 </FILTERS>
 <PROPERTIES>
  <eval name="WaterOutput" value="100*int(1+1.5*Volume/100.)"/>
- <eval name="CivicJobs" value="int(Volume/150.)"/>
+ <eval name="CivicJobs" value="int(Volume/600.)"/><!-- about 30 jobs for the SC4SIM treatment plant (Maxis 16); Volume/150 gave 114 -->
  <PROPERTY ID="0x099AFACD" Eval="10*int(1+0.06*WaterOutput/10)"/><!--Bulldoze Cost-->
  <PROPERTY ID="0x0A4C13CB" Set="0x2A55B192"/><!--SFX:Ambience Decayed Sound-->
  <PROPERTY ID="0x27812841" Eval="0x00002010,Jobs1,0x00002020,Jobs2,0x00002030,Jobs3,0x00001810,Jobs1,0x00001820,Jobs2,0x00001830,Jobs3"/><!--Demand Created-->

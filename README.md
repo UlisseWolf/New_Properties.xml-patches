@@ -114,6 +114,20 @@ Unchanged: schools (their radius already grows with capacity on the Maxis scale:
 
 Unchanged: police (7-56 jobs), libraries, museums, opera, power plants (coal 60, Maxis 48), recycling.
 
+**Utility jobs (2026-11-19).** Power plant jobs follow the staff a real plant of each technology needs per MW (coal and nuclear the most; gas, hydro, solar and wind the fewest), instead of gas having the most jobs per MW and nuclear and fusion the fewest. `CivicJobs = int(PowerOutput/D)` with D: coal 125, nuclear fission 125 (was 350), biomass 125 (was 150), waste to energy 100, oil 150, electric generator 200 (was 60), auxiliary 200 (was 30), natural gas 200 (was 60), solar 250 (was 150), fusion 250 (was 1,000), hydroelectric 300, geothermal 300, microwave 300, wind 300, tidal 300 (were 150). Water treatment plants and sewage sanitizers: `int(Volume/600.)` (was `/150.`). Incinerators and recycling centers: one job per 750 residents served (was 1,500). Water pumps and towers keep no jobs, as in Maxis.
+
+| Installed SC4SIM building | Before | After | Maxis |
+|---|---|---|---|
+| Coal 7,500 MW | 60 | 60 | 48 (6,000 MW) |
+| Natural gas 5,200 MW | 85 | 26 | 48 (3,000 MW) |
+| Oil 11,600 MW | 77 | 77 | 48 (7,000 MW) |
+| Nuclear 43,400 MW | 123 | 346 | 48 (16,000 MW) |
+| Hydrogen 92,100 MW | 92 | 368 | 48 (50,000 MW) |
+| Solar 8,000 MW | 52 | 33 | 32 (5,000 MW) |
+| Waste to energy 8,500 MW | 84 | 84 | 48 (5,000 MW) |
+| Water treatment plant | 114 | 28 | 16 |
+| Recycling center 27,500 | 20 | 38 | 18 (25,000) |
+
 All 992 generator evaluations now succeed except the four placeholders that are not meant to be used (Network Enabling Dummy, Stoplight, RR Crossing, Effect). PIM-X expands the `eval` variables by plain text replacement; a comparison with a token-based expansion found no variable name that corrupts another. Parks: rebuilt with PIM-X, the hand-tuned SIM Greens 1-3 give 5 / 10 / 20 (their effects come from the lot size, 1x1).
 
 Unchanged: capacities, radii and outputs, the College and Opera monthly costs, the Jail, and the reward buildings (Farmers Market, Prison, Toxic Dump) and the SC4SIM deathcare buildings. Fire stations and the Disease Center keep their monthly cost; their plop cost is now `PaybackCivic` months (see the in-game test below). Fixed on the way: syntax errors in the Fresh Water Pump plop cost, the Treatment Plant bulldoze cost and the Biomass bulldoze cost.
