@@ -12782,7 +12782,7 @@ This selection will filter the display to only show Library plug-ins. To create 
  <eval name="Jobs1" value="5+int(CivicJobs*3./10.)"/>
  <eval name="Jobs2" value="2+int(CivicJobs*7./10.)"/>
  <eval name="Jobs3" value="0+int(CivicJobs*0./10.)"/>
- <eval name="Radius" value="40*int(1+0.75*Students**0.4)"/>
+ <eval name="Radius" value="16*int(0.5+1.45*Students**0.3)"/><!-- Maxis scale: the Maxis small library (30,000) covers 512 m; 40,000 -> 560 m, 480,000 -> 1,168 m. The former 40*int(1+0.75*Students^0.4) gave 4 times the Maxis radius -->
  <eval name="MCost" value="50*int(1+CostPerResident*0.035*480000*(Students/480000.)**0.9/50.)"/><!-- 0.035 x CostPerResident per resident served (Maxis Small Library: 30,000 for 250/month) -->
  <eval name="PCost" value="50*int(0.5+PaybackCivic*MCost/50.)"/>
  <eval name="BCost" value="10*int(2+0.00004*Volume**1.4)"/>
@@ -13337,7 +13337,7 @@ This selection will filter the display to only show Hospital plug-ins.  To creat
 </FILTERS>
 <PROPERTIES>
  <eval name="Patients" value="(200*round(2+Volume**0.75/37.5))"/>
- <eval name="Radius" value="16*int(1+4.*Patients**0.4)"/>
+ <eval name="Radius" value="16*int(1+2.*Patients**0.4)"/><!-- Maxis scale: 500 patients -> 400 m (Maxis clinic 384 m). The former coefficient 4 doubled it: a 1,400-patient clinic covered 1,168 m and an 18,400-patient medical center 3,264 m -->
  <eval name="HealthCost" value="CostPerResident*3.5*18400*(Patients/18400.)**0.9"/><!-- patients = residents served; 3.5 x matches the Maxis clinic (500 for 400/month) and medical center (3,000 for 1,200/month) -->
  <eval name="MCost" value="10*int(1+HealthCost*6./7./10.)"/>
  <eval name="PCost" value="50*int(0.5+PaybackCivic*CCost/50.)"/>
@@ -13362,7 +13362,7 @@ This selection will filter the display to only show Hospital plug-ins.  To creat
 </FILTERS>
 <PROPERTIES>
  <eval name="Patients" value="(200*round(2+Volume**0.75/37.5))"/>
- <eval name="Radius" value="16*int(1+4.*Patients**0.4)"/>
+ <eval name="Radius" value="16*int(1+2.*Patients**0.4)"/><!-- Maxis scale: 500 patients -> 400 m (Maxis clinic 384 m). The former coefficient 4 doubled it: a 1,400-patient clinic covered 1,168 m and an 18,400-patient medical center 3,264 m -->
  <eval name="HealthCost" value="1.1*CostPerResident*3.5*18400*(Patients/18400.)**0.9"/><!-- patients = residents served; 3.5 x matches the Maxis clinic (500 for 400/month) and medical center (3,000 for 1,200/month) -->
  <eval name="MCost" value="10*int(1+HealthCost*6./7./10.)"/>
  <eval name="PCost" value="50*int(0.5+PaybackCivic*CCost/50.)"/>
@@ -13389,7 +13389,7 @@ This selection will filter the display to only show Hospital plug-ins.  To creat
  <eval name="Jobs1" value="5+int((ceil(Patients/120.))*1./5.)"/>
  <eval name="Jobs2" value="2+int((ceil(Patients/150.))*3./5.)"/>
  <eval name="Jobs3" value="0+int((ceil(Patients/140.))*1./5.)"/>
- <eval name="Radius" value="80*int(30+0.25*Patients**0.4)"/>
+ <eval name="Radius" value="16*int(1+2.*Patients**0.4)"/><!-- as the other hospitals; the former 80*int(30+...) had a 2,400 m minimum -->
  <eval name="HealthCost" value="1.1*CostPerResident*3.5*18400*(Patients/18400.)**0.9"/><!-- patients = residents served; 3.5 x matches the Maxis clinic (500 for 400/month) and medical center (3,000 for 1,200/month) -->
  <eval name="MCost" value="10*int(1+HealthCost*6./7./10.)"/>
  <eval name="PCost" value="50*int(0.5+PaybackCivic*CCost/50.)"/>
@@ -13529,7 +13529,7 @@ This selection will filter the display to only show Fire Station plug-ins.  To c
  <eval name="Jobs1" value="5+int(Volume/1500.)"/>
  <eval name="Jobs2" value="0+int(Volume/3000.)"/>
  <eval name="Jobs3" value="0+int(Volume/25000.)"/>
- <eval name="Radius" value="64*int((160+3.0*sqrt(2.*Volume))/16.0)"/>
+ <eval name="Radius" value="16*int(0.5+5.6*Volume**0.2)"/><!-- anchored to the Maxis stations: 2-engine 384 m, 4-engine 576 m (Maxis 585), deluxe 640 m (Maxis 685). The former formula had a 640 m minimum (the constant 160) and gave 3 to 4 times the Maxis radius -->
  <eval name="CntrSt" value="min(20*int((100+sqrt(2.*Volume))/5.0),255)"/>
  <eval name="ExtrSt" value="min(20*int((50+0.1*sqrt(2.*Volume))/5.0),100)"/>
  <eval name="Dispat" value="int(1+0.01*sqrt(2.*Volume))"/>
@@ -13591,7 +13591,7 @@ This selection will filter the display to only show Police Station plug-ins.  To
  <eval name="Jobs1" value="5+int(Volume/500.)"/>
  <eval name="Jobs2" value="2+int(Volume/5000.)"/>
  <eval name="Jobs3" value="0+int(Volume/25000.)"/>
- <eval name="Radius" value="64*int((160+1.5*(2.*Volume)**0.55)/16.0)"/>
+ <eval name="Radius" value="16*int(0.5+3.7*Volume**0.24)"/><!-- same scale as fire and health: kiosk 224 m, 4-car precinct 448 m, 36-car 640 m, deluxe 656 m. The former formula had a 640 m minimum and reached 2,816 m (176 cells, a whole large map) -->
  <eval name="CntrSt" value="5*int((100+0.7*(2.*Volume)**0.55)/5.0)"/>
  <eval name="ExtrSt" value="min(5*int(0.1*(2.*Volume)**0.55/5.0),50)"/>
  <eval name="Dispat" value="int(0.025*sqrt(2.*Volume))"/>

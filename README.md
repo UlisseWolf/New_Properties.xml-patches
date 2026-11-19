@@ -91,6 +91,17 @@ Reference values with these formulas (monthly / plop): elementary school 1,000 s
 - *Fire Station*: `10*int(8+0.065*Volume^0.7)` made a station cheaper to build than two months of upkeep (2-engine 180 for 90 a month). Plop is now `PaybackCivic` months: 2,700 / 5,700 / 7,200 for the 2-engine, 4-engine and deluxe stations.
 - *Disease Center*: had no plop formula and took the Hospital one from volume (5,460, 45 months). Now `PaybackCivic` months: 3,600.
 
+**Coverage radii (2026-11-19).** The radii were compared with the Maxis buildings of `SimCity_1.dat` (radii are in metres, 16 m per cell; a large city is 4,096 m wide). Fire stations, police stations, hospitals and libraries covered 2 to 4 times the Maxis radius, and the largest ones a whole large map, which made safety and health cost far less than their price per resident served. They are now on the Maxis scale (installed SC4SIM buildings, before -> after):
+
+| Family | Formula | Values |
+|---|---|---|
+| Fire Station | `16*int(0.5+5.6*Volume^0.2)` (was `64*int((160+3*sqrt(2*Volume))/16)`, 640 m minimum) | 2-engine 1,280 -> 384 (Maxis 384), 4-engine 2,432 -> 576 (Maxis 585), deluxe 3,008 -> 640 (Maxis 685) |
+| Police Station | `16*int(0.5+3.7*Volume^0.24)` (was `64*int((160+1.5*(2*Volume)^0.55)/16)`, 640 m minimum) | kiosk 768 -> 224, 4-car 1,536 -> 448, 36-car 2,624 -> 640, deluxe 2,816 -> 656 |
+| Medical Clinic, Hospital with Helicopter, Medical Center with Helicopter | `16*int(1+2*Patients^0.4)` (coefficient 4 before; the medical center had a 2,400 m minimum) | 500 patients 400 (Maxis clinic 384); clinic 1,400 1,168 -> 592; Large Medical Center 18,400 3,264 -> 1,632 |
+| Library | `16*int(0.5+1.45*Students^0.3)` (was `40*int(1+0.75*Students^0.4)`) | small library 40,000 2,080 -> 560 (Maxis 30,000: 512); Main City Library 480,000 5,640 -> 1,168 |
+
+Unchanged: schools (their radius already grows with capacity on the Maxis scale: K-8 School 1,200 students 504 m, Maxis 500 students 384 m), and the city-wide services, which are city-wide in Maxis too (museums, colleges and universities, opera, Disease Center).
+
 All 992 generator evaluations now succeed except the four placeholders that are not meant to be used (Network Enabling Dummy, Stoplight, RR Crossing, Effect). PIM-X expands the `eval` variables by plain text replacement; a comparison with a token-based expansion found no variable name that corrupts another. Parks: rebuilt with PIM-X, the hand-tuned SIM Greens 1-3 give 5 / 10 / 20 (their effects come from the lot size, 1x1).
 
 Unchanged: capacities, radii and outputs, the College and Opera monthly costs, the Jail, and the reward buildings (Farmers Market, Prison, Toxic Dump) and the SC4SIM deathcare buildings. Fire stations and the Disease Center keep their monthly cost; their plop cost is now `PaybackCivic` months (see the in-game test below). Fixed on the way: syntax errors in the Fresh Water Pump plop cost, the Treatment Plant bulldoze cost and the Biomass bulldoze cost.
