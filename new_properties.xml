@@ -12647,7 +12647,7 @@ This selection will filter the display to only show Elementary school plug-ins. 
 </FILTERS>
 <PROPERTIES>
  <eval name="Students" value="max(SCCSElementary,200*int(1+Volume/750.))"/>
- <eval name="CivicJobs" value="int(ceil(Students/30.)/4)"/>
+ <eval name="CivicJobs" value="int(ceil(Students/15.))"/><!-- one job per 15 students (teachers and staff); the former int(ceil(Students/30)/4) gave one per 120, below the Maxis schools (9-12 School: 100 jobs for 750) -->
  <eval name="Jobs1" value="5+int(CivicJobs*3./4.)"/>
  <eval name="Jobs2" value="2+int(CivicJobs*1./4.)"/>
  <eval name="Jobs3" value="0+int(CivicJobs*0./4.)"/>
@@ -12691,7 +12691,7 @@ This selection will filter the display to only show High School plug-ins. To cre
 </FILTERS>
 <PROPERTIES>
  <eval name="Students" value="max(SCCSHighSchool,200*int(1+Volume/1500.))"/>
- <eval name="CivicJobs" value="int(ceil(Students/30.)/4)"/>
+ <eval name="CivicJobs" value="int(ceil(Students/15.))"/><!-- one job per 15 students (teachers and staff); the former int(ceil(Students/30)/4) gave one per 120, below the Maxis schools (9-12 School: 100 jobs for 750) -->
  <eval name="Jobs1" value="5+int(CivicJobs*3./4.)"/>
  <eval name="Jobs2" value="2+int(CivicJobs*1./4.)"/>
  <eval name="Jobs3" value="0+int(CivicJobs*0./4.)"/>
@@ -12735,7 +12735,7 @@ This selection will filter the display to only show High School plug-ins. To cre
 </FILTERS>
 <PROPERTIES>
  <eval name="Students" value="max(SCCSPrivate,200*int(1+Volume/1500.))"/>
- <eval name="CivicJobs" value="int(ceil(Students/30.)/4)"/>
+ <eval name="CivicJobs" value="int(ceil(Students/15.))"/><!-- one job per 15 students (teachers and staff); the former int(ceil(Students/30)/4) gave one per 120, below the Maxis schools (9-12 School: 100 jobs for 750) -->
  <eval name="Jobs1" value="5+int(CivicJobs*3./4.)"/>
  <eval name="Jobs2" value="2+int(CivicJobs*1./4.)"/>
  <eval name="Jobs3" value="0+int(CivicJobs*0./4.)"/>
@@ -12815,7 +12815,7 @@ This selection will filter the display to only show College plug-ins. To create 
 </FILTERS>
 <PROPERTIES>
  <eval name="Students" value="max(SCCSCollege,200*int(40+Volume/750.))"/>
- <eval name="CivicJobs" value="int(ceil(Students/30.)/4)"/>
+ <eval name="CivicJobs" value="int(ceil(Students/20.))"/><!-- one job per 20 students (was one per 120) -->
  <eval name="Jobs1" value="5+int(CivicJobs*3./9.)"/>
  <eval name="Jobs2" value="2+int(CivicJobs*5./9.)"/>
  <eval name="Jobs3" value="0+int(CivicJobs*1./9.)"/>
@@ -13304,7 +13304,7 @@ This selection will filter the display to only show Hospital plug-ins.  To creat
  <NEEDED ID="0xaa1dd396" Value="0x1507"/>
 </FILTERS>
 <PROPERTIES>
- <eval name="CivicJobs" value="int(ceil(Patients/120.))"/>
+ <eval name="CivicJobs" value="int(ceil(Patients/60.))"/><!-- one job per 60 residents served, the Maxis clinic ratio (8 jobs for 500); was one per 120 -->
  <eval name="Jobs1" value="5+int(CivicJobs*1./5.)"/>
  <eval name="Jobs2" value="2+int(CivicJobs*3./5.)"/>
  <eval name="Jobs3" value="0+int(CivicJobs*1./5.)"/>
@@ -13413,6 +13413,7 @@ This selection will filter the display to only show Hospital plug-ins.  To creat
 <PROPERTIES>
  <eval name="Patients" value="(2500*round(2+Volume**0.75/37.5))"/>
  <eval name="Radius" value="11600"/>
+ <eval name="CivicJobs" value="int(ceil(Patients/1500.))"/><!-- research centre staff; the Hospital formula (Patients/120) gave 1,214 jobs for its 145,000 patients -->
  <eval name="MCost" value="3*int(1+0.0009*Patients**0.9)"/>
  <eval name="BCost" value="50*int(2.5+0.006*Volume**0.9)"/>
  <eval name="PCost" value="50*int(0.5+PaybackCivic*MCost/50.)"/><!-- plop = PaybackCivic months; without it the Disease Center took the volume formula of the Hospital category (45 months) -->
@@ -13526,7 +13527,7 @@ This selection will filter the display to only show Fire Station plug-ins.  To c
  <NEEDED ID="0xaa1dd396" Value="0x1502"/>
 </FILTERS>
 <PROPERTIES>
- <eval name="Jobs1" value="5+int(Volume/1500.)"/>
+ <eval name="Jobs1" value="5+int(Volume/600.)"/><!-- Maxis stations: 7 / 28 / 28 jobs; Volume/1500 gave 5 / 15 / 24 -->
  <eval name="Jobs2" value="0+int(Volume/3000.)"/>
  <eval name="Jobs3" value="0+int(Volume/25000.)"/>
  <eval name="Radius" value="16*int(0.5+5.6*Volume**0.2)"/><!-- anchored to the Maxis stations: 2-engine 384 m, 4-engine 576 m (Maxis 585), deluxe 640 m (Maxis 685). The former formula had a 640 m minimum (the constant 160) and gave 3 to 4 times the Maxis radius -->

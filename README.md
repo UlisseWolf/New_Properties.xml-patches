@@ -102,6 +102,18 @@ Reference values with these formulas (monthly / plop): elementary school 1,000 s
 
 Unchanged: schools (their radius already grows with capacity on the Maxis scale: K-8 School 1,200 students 504 m, Maxis 500 students 384 m), and the city-wide services, which are city-wide in Maxis too (museums, colleges and universities, opera, Disease Center).
 
+**Civic jobs (2026-11-19).** Schools, colleges and hospitals offered far fewer jobs than the Maxis buildings and than real ones: the K-12 formula `int(ceil(Students/30)/4)` gave one job per 120 students (the Maxis 9-12 School has 100 jobs for 750 students), hospitals one per 120 residents served (Maxis clinic: one per 62), and the Disease Center inherited the hospital formula and offered 1,214 jobs. Monthly costs do not depend on jobs and are unchanged; the split between $, $$ and $$$ jobs is unchanged.
+
+| Family | Formula | Installed SC4SIM buildings, before -> after |
+|---|---|---|
+| Elementary, High School, Private School | `CivicJobs = int(ceil(Students/15.))`, one per 15 students | K-8 School 16 -> 87, Larger Elementary 61 -> 447, 9-12 School 47 -> 340, Large High School 121 -> 927, private schools 17 -> 100 |
+| College | `int(ceil(Students/20.))` | City College 190 -> 1,116, University 570 -> 3,396 |
+| Hospital (parent of clinics and medical centers) | `int(ceil(Patients/60.))`, the Maxis clinic ratio | clinic 18 -> 29, Large Medical Center 159 -> 313 |
+| Disease Center | own formula `int(ceil(Patients/1500.))` | 1,214 -> 103 |
+| Fire Station | `Jobs1 = 5+int(Volume/600.)` (was `/1500.`) | 2-engine 5 -> 7, 4-engine 15 -> 27, deluxe 24 -> 43 (Maxis 7 / 28 / 28) |
+
+Unchanged: police (7-56 jobs), libraries, museums, opera, power plants (coal 60, Maxis 48), recycling.
+
 All 992 generator evaluations now succeed except the four placeholders that are not meant to be used (Network Enabling Dummy, Stoplight, RR Crossing, Effect). PIM-X expands the `eval` variables by plain text replacement; a comparison with a token-based expansion found no variable name that corrupts another. Parks: rebuilt with PIM-X, the hand-tuned SIM Greens 1-3 give 5 / 10 / 20 (their effects come from the lot size, 1x1).
 
 Unchanged: capacities, radii and outputs, the College and Opera monthly costs, the Jail, and the reward buildings (Farmers Market, Prison, Toxic Dump) and the SC4SIM deathcare buildings. Fire stations and the Disease Center keep their monthly cost; their plop cost is now `PaybackCivic` months (see the in-game test below). Fixed on the way: syntax errors in the Fresh Water Pump plop cost, the Treatment Plant bulldoze cost and the Biomass bulldoze cost.
