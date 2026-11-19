@@ -6426,6 +6426,11 @@ For use with SC4SIM.dll (1.13 or later), in a graph exemplar (type 0x6534284A, g
 For use with SC4SIM.dll (1.13 or later), in a graph exemplar (type 0x6534284A, group 0xCA4AD545): the graph gets no button in the Graphs window; a button of the UI for it is hidden and its cell is left free. Used for graphs merged into another one.
 </HELP>
   </PROPERTY>
+  <PROPERTY Name="Data View Button Cell" ID="0x5C4DF150" Type="Uint32" Count="2" Default="0x00000000 0x00000004" ShowAsHex="N">
+    <HELP>
+For use with SC4DataViewExtensions.dll (1.1 or later), in a data view exemplar (type 0x6534284A, group 0x690F693F, instance 0x4A0B6800 + view mode): position of the data view's button in the Data Views panel, column (0-3, left to right) and row (0-63; rows 0-3 are page 1 with the Maxis buttons, 4-7 page 2 and so on; All Off and the page controls are above). Maxis data views use their Maxis button, any other the button 0x5200 + view mode of ExtendedDataViewUI.dat. A cell outside the grid or already taken sends the button to the next free cell; when no data view has this property, the panel stays as the UI builds it.
+</HELP>
+  </PROPERTY>
   <PROPERTY Name="kSC4FloraFamilyProperty" ID="0xa8f149c5" Type="Uint32" Count="-2" Default="0x00000001" ShowAsHex="Y">
     <HELP>
 kSC4FloraFamilyProperty
