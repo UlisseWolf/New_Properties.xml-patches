@@ -13415,6 +13415,7 @@ This selection will filter the display to only show Hospital plug-ins.  To creat
  <eval name="Radius" value="11600"/>
  <eval name="MCost" value="3*int(1+0.0009*Patients**0.9)"/>
  <eval name="BCost" value="50*int(2.5+0.006*Volume**0.9)"/>
+ <eval name="PCost" value="50*int(0.5+PaybackCivic*MCost/50.)"/><!-- plop = PaybackCivic months; without it the Disease Center took the volume formula of the Hospital category (45 months) -->
  <PROPERTY ID="0x2A499F85" Eval="QueryForDisease"/><!--Query exemplar GUID-->
  <PROPERTY ID="0x8A2602B9" Eval="ItemOrderForDisease"/><!-- Item Order -->
  <PROPERTY ID="0xA92AE3BD" Value="0.00000000,3.00000000,100.00000000,3.00000000"/><!--Hospital Effectiveness vs. Average Age-->
@@ -13533,7 +13534,7 @@ This selection will filter the display to only show Fire Station plug-ins.  To c
  <eval name="ExtrSt" value="min(20*int((50+0.1*sqrt(2.*Volume))/5.0),100)"/>
  <eval name="Dispat" value="int(1+0.01*sqrt(2.*Volume))"/>
  <eval name="MCost" value="10*int(6+0.030*Volume**0.65)"/>
- <eval name="PCost" value="10*int(8+0.065*Volume**0.7)"/>
+ <eval name="PCost" value="50*int(0.5+PaybackCivic*MCost/50.)"/><!-- plop = PaybackCivic months, as police, education and health (the old 10*int(8+0.065*Volume^0.7) made a fire station cost less than two months of upkeep) -->
  <eval name="BCost" value="10*int(2+0.005*Volume**0.65)"/>
  <PROPERTY ID="0x08F55DC0" Eval="CntrSt"/><!--Fire Station, Center Strength-->
  <PROPERTY ID="0x08F55DC1" Eval="ExtrSt"/><!--Fire Station, Exterior Strength-->
