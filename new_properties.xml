@@ -12600,8 +12600,9 @@ This selection will filter the display to only show plug-ins that are ploppable 
       4,500 students 3,750/month), and every family is scaled from it to the cost per unit of its Maxis buildings.
       Capacities stay the SIM ones. PaybackCivic 30 months is close to the 35 months of a real school. -->
  <eval name="CostPerResident" value="0.125"/>
+ <eval name="SvcDensity" value="5000"/><!-- residents per km2 of a typical SC4 district: the coverage radius of schools and hospitals is the circle that holds the residents they serve at this density -->
  <eval name="PaybackCivic" value="30"/><!-- plop = 30 months of monthly cost (police, education, health) -->
- <eval name="PaybackPower" value="50"/><!-- power plants: capital heavy -->
+ <eval name="PaybackPower" value="50"/><!-- power plants without their own PaybackFuel (each fuel category sets its own, 20 to 80 months) -->
  <eval name="PaybackWater" value="12"/><!-- water works serve very large populations: 12 months keeps the largest plants playable -->
  <eval name="PaybackGarbage" value="25"/>
  <PROPERTY ID="0x27812851" Eval="int(BiasedBC*AirPollutionFactor),int(BiasedBC*WaterPollutionFactor),int(BiasedBC*GarbagePollutionFactor),0"/><!--pollution at center-->
@@ -12646,12 +12647,13 @@ This selection will filter the display to only show Elementary school plug-ins. 
  <NEEDED ID="0xaa1dd396" Value="0x150F"/>
 </FILTERS>
 <PROPERTIES>
- <eval name="Students" value="max(SCCSElementary,200*int(1+Volume/750.))"/>
+ <eval name="Students" value="min(2500,max(SCCSElementary,200*int(1+Volume/750.)))"/><!-- at most 2,500 students: a large real elementary school; the average US public school has about 500 -->
  <eval name="CivicJobs" value="int(ceil(Students/15.))"/><!-- one job per 15 students (teachers and staff); the former int(ceil(Students/30)/4) gave one per 120, below the Maxis schools (9-12 School: 100 jobs for 750) -->
  <eval name="Jobs1" value="5+int(CivicJobs*3./4.)"/>
  <eval name="Jobs2" value="2+int(CivicJobs*1./4.)"/>
  <eval name="Jobs3" value="0+int(CivicJobs*0./4.)"/>
- <eval name="Radius" value="8*int(12.5+3.*Students**0.4)"/>
+ <eval name="SvcResidents" value="5*Students"/><!-- students are 20% of the residents -->
+ <eval name="Radius" value="16*int(0.5+1000*(SvcResidents/(3.14159*SvcDensity))**0.5/16.)"/><!-- the circle that holds the residents served at SvcDensity -->
  <eval name="SchoolCost" value="CostPerResident*5.0*6600*(Students/6600.)**0.9"/><!-- students = 20% of residents -->
  <eval name="TCost" value="12.5*int(1+0.25*SchoolCost/12.5)"/>
  <eval name="MCost" value="3.0*TCost"/>
@@ -12690,12 +12692,13 @@ This selection will filter the display to only show High School plug-ins. To cre
  <NEEDED ID="0xaa1dd396" Value="0x1510"/>
 </FILTERS>
 <PROPERTIES>
- <eval name="Students" value="max(SCCSHighSchool,200*int(1+Volume/1500.))"/>
+ <eval name="Students" value="min(4500,max(SCCSHighSchool,200*int(1+Volume/1500.)))"/><!-- at most 4,500 students, the Maxis Large High School -->
  <eval name="CivicJobs" value="int(ceil(Students/15.))"/><!-- one job per 15 students (teachers and staff); the former int(ceil(Students/30)/4) gave one per 120, below the Maxis schools (9-12 School: 100 jobs for 750) -->
  <eval name="Jobs1" value="5+int(CivicJobs*3./4.)"/>
  <eval name="Jobs2" value="2+int(CivicJobs*1./4.)"/>
  <eval name="Jobs3" value="0+int(CivicJobs*0./4.)"/>
- <eval name="Radius" value="8*int(27.5+2.625*Students**0.4)"/>
+ <eval name="SvcResidents" value="5*Students"/><!-- students are 20% of the residents -->
+ <eval name="Radius" value="16*int(0.5+1000*(SvcResidents/(3.14159*SvcDensity))**0.5/16.)"/><!-- the circle that holds the residents served at SvcDensity -->
  <eval name="SchoolCost" value="CostPerResident*6.0*6600*(Students/6600.)**0.9"/><!-- 1.2 x elementary per student -->
  <eval name="TCost" value="12.5*int(1+SchoolCost/7.5/12.5)"/>
  <eval name="MCost" value="6.5*TCost"/>
@@ -12734,12 +12737,13 @@ This selection will filter the display to only show High School plug-ins. To cre
  <NEEDED ID="0xaa1dd396" Value="0x1514"/>
 </FILTERS>
 <PROPERTIES>
- <eval name="Students" value="max(SCCSPrivate,200*int(1+Volume/1500.))"/>
+ <eval name="Students" value="min(1500,max(SCCSPrivate,200*int(1+Volume/1500.)))"/><!-- at most 1,500 students -->
  <eval name="CivicJobs" value="int(ceil(Students/15.))"/><!-- one job per 15 students (teachers and staff); the former int(ceil(Students/30)/4) gave one per 120, below the Maxis schools (9-12 School: 100 jobs for 750) -->
  <eval name="Jobs1" value="5+int(CivicJobs*3./4.)"/>
  <eval name="Jobs2" value="2+int(CivicJobs*1./4.)"/>
  <eval name="Jobs3" value="0+int(CivicJobs*0./4.)"/>
- <eval name="Radius" value="8*int(27.5+2.625*Students**0.4)"/>
+ <eval name="SvcResidents" value="5*Students"/><!-- students are 20% of the residents -->
+ <eval name="Radius" value="16*int(0.5+1000*(SvcResidents/(3.14159*SvcDensity))**0.5/16.)"/><!-- the circle that holds the residents served at SvcDensity -->
  <eval name="SchoolCost" value="CostPerResident*9.0*6600*(Students/6600.)**0.9"/><!-- 1.5 x high school per student -->
  <eval name="TCost" value="12.5*int(1+SchoolCost/7.5/12.5)"/>
  <eval name="MCost" value="6.5*TCost"/>
@@ -13337,7 +13341,8 @@ This selection will filter the display to only show Hospital plug-ins.  To creat
 </FILTERS>
 <PROPERTIES>
  <eval name="Patients" value="(200*round(2+Volume**0.75/37.5))"/>
- <eval name="Radius" value="16*int(1+2.*Patients**0.4)"/><!-- Maxis scale: 500 patients -> 400 m (Maxis clinic 384 m). The former coefficient 4 doubled it: a 1,400-patient clinic covered 1,168 m and an 18,400-patient medical center 3,264 m -->
+ <eval name="SvcResidents" value="Patients"/><!-- patients = residents served -->
+ <eval name="Radius" value="16*int(0.5+1000*(SvcResidents/(3.14159*SvcDensity))**0.5/16.)"/><!-- the circle that holds the residents served at SvcDensity -->
  <eval name="HealthCost" value="CostPerResident*3.5*18400*(Patients/18400.)**0.9"/><!-- patients = residents served; 3.5 x matches the Maxis clinic (500 for 400/month) and medical center (3,000 for 1,200/month) -->
  <eval name="MCost" value="10*int(1+HealthCost*6./7./10.)"/>
  <eval name="PCost" value="50*int(0.5+PaybackCivic*CCost/50.)"/>
@@ -13362,7 +13367,8 @@ This selection will filter the display to only show Hospital plug-ins.  To creat
 </FILTERS>
 <PROPERTIES>
  <eval name="Patients" value="(200*round(2+Volume**0.75/37.5))"/>
- <eval name="Radius" value="16*int(1+2.*Patients**0.4)"/><!-- Maxis scale: 500 patients -> 400 m (Maxis clinic 384 m). The former coefficient 4 doubled it: a 1,400-patient clinic covered 1,168 m and an 18,400-patient medical center 3,264 m -->
+ <eval name="SvcResidents" value="Patients"/><!-- patients = residents served -->
+ <eval name="Radius" value="16*int(0.5+1000*(SvcResidents/(3.14159*SvcDensity))**0.5/16.)"/><!-- the circle that holds the residents served at SvcDensity -->
  <eval name="HealthCost" value="1.1*CostPerResident*3.5*18400*(Patients/18400.)**0.9"/><!-- patients = residents served; 3.5 x matches the Maxis clinic (500 for 400/month) and medical center (3,000 for 1,200/month) -->
  <eval name="MCost" value="10*int(1+HealthCost*6./7./10.)"/>
  <eval name="PCost" value="50*int(0.5+PaybackCivic*CCost/50.)"/>
@@ -13389,7 +13395,8 @@ This selection will filter the display to only show Hospital plug-ins.  To creat
  <eval name="Jobs1" value="5+int((ceil(Patients/120.))*1./5.)"/>
  <eval name="Jobs2" value="2+int((ceil(Patients/150.))*3./5.)"/>
  <eval name="Jobs3" value="0+int((ceil(Patients/140.))*1./5.)"/>
- <eval name="Radius" value="16*int(1+2.*Patients**0.4)"/><!-- as the other hospitals; the former 80*int(30+...) had a 2,400 m minimum -->
+ <eval name="SvcResidents" value="Patients"/><!-- patients = residents served -->
+ <eval name="Radius" value="16*int(0.5+1000*(SvcResidents/(3.14159*SvcDensity))**0.5/16.)"/><!-- the circle that holds the residents served at SvcDensity -->
  <eval name="HealthCost" value="1.1*CostPerResident*3.5*18400*(Patients/18400.)**0.9"/><!-- patients = residents served; 3.5 x matches the Maxis clinic (500 for 400/month) and medical center (3,000 for 1,200/month) -->
  <eval name="MCost" value="10*int(1+HealthCost*6./7./10.)"/>
  <eval name="PCost" value="50*int(0.5+PaybackCivic*CCost/50.)"/>
@@ -13706,7 +13713,8 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
     </FILTERS>
   <PROPERTIES>
     <eval name="PowerOutput" value="100*int(1+0.0650*Volume/100.)"/>
-    <eval name="PCost" value="500*int(0.5+PaybackPower*max(MCost,25)/500.)"/>
+    <eval name="PaybackFuel" value="60"/><!-- plop = PaybackFuel months of upkeep: capital-heavy plants (nuclear, hydro, coal, renewables) cost more to build, gas and generators less (was PaybackPower 50 for every plant) -->
+    <eval name="PCost" value="500*int(0.5+PaybackFuel*max(MCost,25)/500.)"/>
     <eval name="FuelFactor" value="0.6"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
     <eval name="BCost" value="(10*int(0.070*PowerOutput/10.))/2"/>
@@ -13742,7 +13750,8 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
       </FILTERS>
       <PROPERTIES>
         <eval name="PowerOutput" value="100*int(1+1.70*Volume/100.)"/>
-        <eval name="PCost" value="500*int(0.5+PaybackPower*max(MCost,25)/500.)"/>
+        <eval name="PaybackFuel" value="80"/><!-- plop = PaybackFuel months of upkeep: capital-heavy plants (nuclear, hydro, coal, renewables) cost more to build, gas and generators less (was PaybackPower 50 for every plant) -->
+        <eval name="PCost" value="500*int(0.5+PaybackFuel*max(MCost,25)/500.)"/>
         <eval name="FuelFactor" value="1.25"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.090*PowerOutput/10.))/5"/>
@@ -13776,11 +13785,12 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
       </FILTERS>
       <PROPERTIES>
         <eval name="PowerOutput" value="100*int(1+0.060*Volume/100.)"/>
-        <eval name="PCost" value="500*int(0.5+PaybackPower*max(MCost,25)/500.)"/>
+        <eval name="PaybackFuel" value="20"/><!-- plop = PaybackFuel months of upkeep: capital-heavy plants (nuclear, hydro, coal, renewables) cost more to build, gas and generators less (was PaybackPower 50 for every plant) -->
+        <eval name="PCost" value="500*int(0.5+PaybackFuel*max(MCost,25)/500.)"/>
         <eval name="FuelFactor" value="0.9"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.140*PowerOutput/10.))/2"/>
-        <eval name="CivicJobs" value="int(PowerOutput/200.)"/><!-- staff per MW by technology: coal and nuclear plants have the most staff, gas, hydro and solar the fewest (was int(PowerOutput/60.)) -->
+        <eval name="CivicJobs" value="int(PowerOutput/300.)"/><!-- gas plants are the least staffed per MW (a 565 MW combined cycle plant needs about 27 people); was /200 -->
         <eval name="Jobs1" value="1+int(CivicJobs*28/48.)"/>
         <eval name="Jobs2" value="0+int(CivicJobs*15/48.)"/>
         <eval name="Jobs3" value="0+int(CivicJobs*5/48.)"/>
@@ -13810,7 +13820,8 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
       </FILTERS>
       <PROPERTIES>
         <eval name="PowerOutput" value="50*int(1+0.030*Volume)"/>
-        <eval name="PCost" value="500*int(0.5+PaybackPower*max(MCost,25)/500.)"/>
+        <eval name="PaybackFuel" value="20"/><!-- plop = PaybackFuel months of upkeep: capital-heavy plants (nuclear, hydro, coal, renewables) cost more to build, gas and generators less (was PaybackPower 50 for every plant) -->
+        <eval name="PCost" value="500*int(0.5+PaybackFuel*max(MCost,25)/500.)"/>
         <eval name="FuelFactor" value="1.2"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="10*int(0.140*PowerOutput/10.)"/>
@@ -13844,11 +13855,12 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
       </FILTERS>
       <PROPERTIES>
         <eval name="PowerOutput" value="100*int(1+5.550*Volume**0.8/100.)"/>
-        <eval name="PCost" value="500*int(0.5+PaybackPower*max(MCost,25)/500.)"/>
+        <eval name="PaybackFuel" value="80"/><!-- plop = PaybackFuel months of upkeep: capital-heavy plants (nuclear, hydro, coal, renewables) cost more to build, gas and generators less (was PaybackPower 50 for every plant) -->
+        <eval name="PCost" value="500*int(0.5+PaybackFuel*max(MCost,25)/500.)"/>
         <eval name="FuelFactor" value="1.1"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.110*PowerOutput/10.))/5"/>
-        <eval name="CivicJobs" value="int(PowerOutput/125.)"/><!-- staff per MW by technology: coal and nuclear plants have the most staff, gas, hydro and solar the fewest (was int(PowerOutput/350.)) -->
+        <eval name="CivicJobs" value="int(PowerOutput/100.)"/><!-- nuclear plants are the most staffed per MW (0.6-0.9 staff per MW); was /125 -->
         <eval name="Jobs1" value="1+int(CivicJobs*20/48.)"/>
         <eval name="Jobs2" value="0+int(CivicJobs*20/48.)"/>
         <eval name="Jobs3" value="0+int(CivicJobs*8/48.)"/>
@@ -13883,7 +13895,8 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
       </FILTERS>
       <PROPERTIES>
         <eval name="PowerOutput" value="100*int(1+0.050*Volume/100.)"/>
-        <eval name="PCost" value="500*int(0.5+PaybackPower*max(MCost,25)/500.)"/>
+        <eval name="PaybackFuel" value="30"/><!-- plop = PaybackFuel months of upkeep: capital-heavy plants (nuclear, hydro, coal, renewables) cost more to build, gas and generators less (was PaybackPower 50 for every plant) -->
+        <eval name="PCost" value="500*int(0.5+PaybackFuel*max(MCost,25)/500.)"/>
         <eval name="FuelFactor" value="0.75"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.110*PowerOutput/10.))/2"/>
@@ -13918,7 +13931,8 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
       </FILTERS>
       <PROPERTIES>
         <eval name="PowerOutput" value="100*int(1+0.035*Volume/100.)"/>
-        <eval name="PCost" value="500*int(0.5+PaybackPower*max(MCost,25)/500.)"/>
+        <eval name="PaybackFuel" value="40"/><!-- plop = PaybackFuel months of upkeep: capital-heavy plants (nuclear, hydro, coal, renewables) cost more to build, gas and generators less (was PaybackPower 50 for every plant) -->
+        <eval name="PCost" value="500*int(0.5+PaybackFuel*max(MCost,25)/500.)"/>
         <eval name="FuelFactor" value="0.9"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.110*PowerOutput/10.))/2"/>
@@ -13953,7 +13967,8 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
       </FILTERS>
       <PROPERTIES>
         <eval name="PowerOutput" value="100*int(1+0.040*Volume/100.)"/>
-        <eval name="PCost" value="500*int(0.5+PaybackPower*max(MCost,25)/500.)"/>
+        <eval name="PaybackFuel" value="80"/><!-- plop = PaybackFuel months of upkeep: capital-heavy plants (nuclear, hydro, coal, renewables) cost more to build, gas and generators less (was PaybackPower 50 for every plant) -->
+        <eval name="PCost" value="500*int(0.5+PaybackFuel*max(MCost,25)/500.)"/>
         <eval name="FuelFactor" value="0.8"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.110*PowerOutput/10.))/2"/>
@@ -13986,7 +14001,8 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
       </FILTERS>
       <PROPERTIES>
         <eval name="PowerOutput" value="100*int(1+0.040*Volume/100.)"/>
-        <eval name="PCost" value="500*int(0.5+PaybackPower*max(MCost,25)/500.)"/>
+        <eval name="PaybackFuel" value="60"/><!-- plop = PaybackFuel months of upkeep: capital-heavy plants (nuclear, hydro, coal, renewables) cost more to build, gas and generators less (was PaybackPower 50 for every plant) -->
+        <eval name="PCost" value="500*int(0.5+PaybackFuel*max(MCost,25)/500.)"/>
         <eval name="FuelFactor" value="1.0"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.110*PowerOutput/10.))/2"/>
@@ -14020,7 +14036,8 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
       </FILTERS>
       <PROPERTIES>
         <eval name="PowerOutput" value="100*int(1+0.050*Volume/100.)"/>
-        <eval name="PCost" value="500*int(0.5+PaybackPower*max(MCost,25)/500.)"/>
+        <eval name="PaybackFuel" value="60"/><!-- plop = PaybackFuel months of upkeep: capital-heavy plants (nuclear, hydro, coal, renewables) cost more to build, gas and generators less (was PaybackPower 50 for every plant) -->
+        <eval name="PCost" value="500*int(0.5+PaybackFuel*max(MCost,25)/500.)"/>
         <eval name="FuelFactor" value="1.5"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.250*PowerOutput/10.))/2"/>
@@ -14055,7 +14072,8 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
       </FILTERS>
       <PROPERTIES>
         <eval name="PowerOutput" value="100*int(1+5.500*Volume/100.)/10"/>
-        <eval name="PCost" value="500*int(0.5+PaybackPower*max(MCost,25)/500.)"/>
+        <eval name="PaybackFuel" value="60"/><!-- plop = PaybackFuel months of upkeep: capital-heavy plants (nuclear, hydro, coal, renewables) cost more to build, gas and generators less (was PaybackPower 50 for every plant) -->
+        <eval name="PCost" value="500*int(0.5+PaybackFuel*max(MCost,25)/500.)"/>
         <eval name="FuelFactor" value="1.6"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.250*PowerOutput/10.))/2"/>
@@ -14090,7 +14108,8 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
       </FILTERS>
       <PROPERTIES>
         <eval name="PowerOutput" value="100*int(1+0.500*Volume/100.)"/>
-        <eval name="PCost" value="500*int(0.5+PaybackPower*max(MCost,25)/500.)"/>
+        <eval name="PaybackFuel" value="60"/><!-- plop = PaybackFuel months of upkeep: capital-heavy plants (nuclear, hydro, coal, renewables) cost more to build, gas and generators less (was PaybackPower 50 for every plant) -->
+        <eval name="PCost" value="500*int(0.5+PaybackFuel*max(MCost,25)/500.)"/>
         <eval name="FuelFactor" value="1.5"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.100*PowerOutput/10.))/2"/>
@@ -14126,7 +14145,8 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
       </FILTERS>
       <PROPERTIES>
         <eval name="PowerOutput" value="100*int(1+0.500*Volume/100.)"/>
-        <eval name="PCost" value="500*int(0.5+PaybackPower*max(MCost,25)/500.)"/>
+        <eval name="PaybackFuel" value="70"/><!-- plop = PaybackFuel months of upkeep: capital-heavy plants (nuclear, hydro, coal, renewables) cost more to build, gas and generators less (was PaybackPower 50 for every plant) -->
+        <eval name="PCost" value="500*int(0.5+PaybackFuel*max(MCost,25)/500.)"/>
         <eval name="FuelFactor" value="1.4"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.100*PowerOutput/10.))/2"/>
@@ -14198,7 +14218,8 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
       </FILTERS>
       <PROPERTIES>
         <eval name="PowerOutput" value="100*int(1+0.085*Volume/100.)"/>
-        <eval name="PCost" value="500*int(0.5+PaybackPower*max(MCost,25)/500.)"/>
+        <eval name="PaybackFuel" value="40"/><!-- plop = PaybackFuel months of upkeep: capital-heavy plants (nuclear, hydro, coal, renewables) cost more to build, gas and generators less (was PaybackPower 50 for every plant) -->
+        <eval name="PCost" value="500*int(0.5+PaybackFuel*max(MCost,25)/500.)"/>
         <eval name="FuelFactor" value="1.0"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.450*PowerOutput/10.))/2"/>
@@ -14349,7 +14370,8 @@ This selection will filter the display to only show Jail plug-ins.  To create a 
       </FILTERS>
       <PROPERTIES>
         <eval name="PowerOutput" value="100*int(1+0.050*Volume**0.8/100.)"/>
-        <eval name="PCost" value="500*int(0.5+PaybackPower*max(MCost,25)/500.)"/>
+        <eval name="PaybackFuel" value="20"/><!-- plop = PaybackFuel months of upkeep: capital-heavy plants (nuclear, hydro, coal, renewables) cost more to build, gas and generators less (was PaybackPower 50 for every plant) -->
+        <eval name="PCost" value="500*int(0.5+PaybackFuel*max(MCost,25)/500.)"/>
         <eval name="FuelFactor" value="1.2"/>
         <eval name="MCost" value="50*int(0.5+FuelFactor*PowerCostPerMW*PowerOutput/50.)"/>
         <eval name="BCost" value="(10*int(0.250*PowerOutput/10.))/10"/>
@@ -14695,6 +14717,11 @@ This selection will filter the display to only show Fresh Water Pump plug-ins.  
 <PROPERTIES>
  <eval name="WaterCostFactor" value="0.8"/>
  <eval name="WaterOutput" value="100*int(1+400*Volume/100.)"/>
+ <eval name="PmpStaff" value="min(10,max(3,int(WaterOutput/15000.)))"/><!-- pumping stations: 3 to 10 operators (the water parent CivicJobs stays for the pollution radius) -->
+ <eval name="PmpLow" value="int(PmpStaff/4.)"/>
+ <eval name="PmpMid" value="PmpStaff-2*int(PmpStaff/4.)"/>
+ <eval name="PmpHigh" value="int(PmpStaff/4.)"/>
+ <PROPERTY ID="0x27812841" Eval="0x00002010,PmpLow,0x00002020,PmpMid,0x00002030,PmpHigh,0x00001810,PmpLow,0x00001820,PmpMid,0x00001830,PmpHigh"/><!--Demand Created-->
  <PROPERTY ID="0x099AFACD" Eval="10*int(1+0.003*WaterOutput/10.)"/><!--Bulldoze Cost-->
  <PROPERTY ID="0x27812854" Eval="int(1+WaterOutput/6000.)"/><!--Power Consumed-->
  <PROPERTY ID="0x29244DB5" Eval="0x2D"/><!--Flammability-->
@@ -14749,6 +14776,11 @@ This selection will filter the display to only show Water Pump plug-ins.  To cre
 </FILTERS>
 <PROPERTIES>
  <eval name="WaterOutput" value="1000*int(1+30*Volume/1000.)"/>
+ <eval name="PmpStaff" value="min(10,max(3,int(WaterOutput/15000.)))"/><!-- pumping stations: 3 to 10 operators (the water parent CivicJobs stays for the pollution radius) -->
+ <eval name="PmpLow" value="int(PmpStaff/4.)"/>
+ <eval name="PmpMid" value="PmpStaff-2*int(PmpStaff/4.)"/>
+ <eval name="PmpHigh" value="int(PmpStaff/4.)"/>
+ <PROPERTY ID="0x27812841" Eval="0x00002010,PmpLow,0x00002020,PmpMid,0x00002030,PmpHigh,0x00001810,PmpLow,0x00001820,PmpMid,0x00001830,PmpHigh"/><!--Demand Created-->
  <PROPERTY ID="0x099AFACD" Eval="10*int(1+0.003*WaterOutput/10)"/><!--Bulldoze Cost-->
  <PROPERTY ID="0x0A4C13CB" Set="0x2A55AACA"/><!--SFX:Ambience Decayed Sound-->
  <PROPERTY ID="0x27812854" Eval="int(1+WaterOutput/6000.)"/><!--Power Consumed-->
@@ -14777,6 +14809,11 @@ This selection will filter the display to only show Large Water Pump plug-ins.  
 </FILTERS>
 <PROPERTIES>
  <eval name="WaterOutput" value="1000*int(1+50*Volume/1000.)"/>
+ <eval name="PmpStaff" value="min(10,max(3,int(WaterOutput/15000.)))"/><!-- pumping stations: 3 to 10 operators (the water parent CivicJobs stays for the pollution radius) -->
+ <eval name="PmpLow" value="int(PmpStaff/4.)"/>
+ <eval name="PmpMid" value="PmpStaff-2*int(PmpStaff/4.)"/>
+ <eval name="PmpHigh" value="int(PmpStaff/4.)"/>
+ <PROPERTY ID="0x27812841" Eval="0x00002010,PmpLow,0x00002020,PmpMid,0x00002030,PmpHigh,0x00001810,PmpLow,0x00001820,PmpMid,0x00001830,PmpHigh"/><!--Demand Created-->
  <PROPERTY ID="0x099AFACD" Eval="10*int(1+0.003*WaterOutput/10)"/><!--Bulldoze Cost-->
  <PROPERTY ID="0x0A4C13CB" Set="0x2A55AACA"/><!--SFX:Ambience Decayed Sound-->
  <PROPERTY ID="0x27812854" Eval="int(1+WaterOutput/6000.)"/><!--Power Consumed-->
