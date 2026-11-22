@@ -6,6 +6,7 @@ CAM and SC4SIM.**
 [![Latest tag](https://img.shields.io/github/v/tag/UlisseWolf/New_Properties.xml-patches?label=version)](https://github.com/UlisseWolf/New_Properties.xml-patches/tags)
 ![Game](https://img.shields.io/badge/SimCity%204-Deluxe%20%2F%20Rush%20Hour-green)
 ![Tools](https://img.shields.io/badge/tools-PIM--X%20%7C%20iLive%20Reader-blue)
+[![License: LGPL v2.1](https://img.shields.io/badge/License-LGPL%20v2.1-blue.svg)](LICENSE)
 
 `new_properties.xml` tells the SimCity 4 modding tools what every exemplar property means: its ID, name, type, allowed
 values and description. It also holds the **generators** that compute the statistics of new lots (residential,
@@ -30,6 +31,7 @@ real-world figures.
 - [Changelog](#changelog)
 - [Contributing](#contributing)
 - [Credits](#credits)
+- [License](#license)
 
 ## Which version should I use?
 
@@ -174,6 +176,7 @@ with it reports no differences.
 | `tropod_Properties.xml` | Property definitions for iLive Reader 0.9.3 |
 | `docs/balance-model.md` | The civic and utility balance model: formulas, reference values, revision history |
 | `tools/check_pimx.py` | Headless check of the generators with the PIM-X code |
+| `LICENSE` | GNU Lesser General Public License 2.1 |
 
 ## Changelog
 
@@ -206,5 +209,14 @@ Issues and pull requests are welcome. For a change to a generator:
 - **caspervg** - [PIM-X](https://github.com/caspervg/sc4pim-x), whose generator code `tools/check_pimx.py` uses.
 - **iLive** - the Reader.
 - The authors of CAM, SPAM, Colossus Farming, ERM and NAM-MTA, whose specifications this file follows.
+
+## License
+
+This repository is released under the [GNU Lesser General Public License, version 2.1](LICENSE).
+
+You may use `new_properties.xml` and `tropod_Properties.xml` with any modding tool, and distribute lots, exemplars
+and plugins made with them under any license: the license applies to these files, not to the content you create with
+them. If you distribute a modified version of the files themselves, it must stay under the LGPL 2.1 and come with its
+changes.
 
 SimCity 4 is a trademark of Electronic Arts Inc. This project is not affiliated with or endorsed by Electronic Arts.
